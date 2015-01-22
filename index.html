@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="Description" content="Your Title">
+    <meta name="author" content="Roopa Hiremath Chandrasekaraiah">
+    <meta name="Copyright" content="Copyright 2015 Arizona State University, all rights reserved.">
+	<title>Source Code Management</title>
+	<link rel="stylesheet" type="text/css" href="mystyles.css">
+	<!--[if IE]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<div id="container">
+		<header>
+			<h1>CST316 Software Enterprise: Construction and Transition </h1>
+			<p class="description">Source Code Management using Git</p>
+		</header>
+		<div id="wrapper">
+			<section id="content">
+				<h2>Purpose of the Lab</h2>
+				<p>This lab is admittedly more of a tutorial than a lab. It introduces you to Git, a (distributed) version control system (DVCS), which we will use for your class projects. Along the way there will be specific tasks for you to complete and turn in, but the emphasis here is gaining initial familiarity with the tool and the concepts behind SCC in general and DVCS in particular. Much of the material for this tutorial is abridged from Scott Chacon’s excellent online book Pro Git, and assorted other presentations and online materials. I highly recommend going back through the first few chapters of the online book (<a href="http://git-scm.com/book">http://git-scm.com/book</a>), especially Chapter 2.</p>
+				<p>Because of the nature of a tutorial-as-lab, this contents described are longer than usual and has specific activities I ask you to track. Pay attention to when I ask you to create snapshots of your work and set them aside for submission. The lab covers tools, using Git locally, and using Git with remote repositories. Tools are spread throughout the activities, as I will introduce git, GitHub, and an Eclipse plugin over the course of the activities.</p>
+				<p>Several of you have some understanding of SCC already, through either Git or a different SCC tool like SVN. Some of you may understand the tool but perhaps are not certain of the conceptual underpinnings. Others of you may have no exposure to SCC at all. That is fine, I will attempt to compare and contrast for the newly enlightened as well as the lightly seasoned practitioner. You will see subheadings that explain the difference between Git and traditional SCC tools. If you are new to the whole SCC thing, you should still read this stuff but don’t be too concerned if it doesn’t make complete sense.</p>
+				<p>The lab is organized in to the following sections and you are expected to cover the sections in sequence as depicted below.</p>
+			</section>
+			<section id="content">
+				<h2>Introduction to Git</h2>
+				<p>So you are working on a small team writing source code for a project. In the absence of any tools, you are trying to figure out how to work on the source code tree together. Let’s say each of you has an Eclipse project for your work. You have divided up the tasks and are going about your business. What happens when somebody sends an email around saying “hey, I just finished writing the main UI, here are some files that do it: Main.java, Events.java, and Handlers.java; enjoy!” Well, common sense dictates you would copy these files in to the correct place in your directory and move on with coding. But there are a few “what ifs”:</p>
+				<ol>
+					<li>What if you notice the code has a few minor defects?</li>
+					<li>What if you had already made your own edits to Events.java and Handlers.java?</li>
+					<li>What if copying those files into your workspace caused your project to not compile?</li>
+					<li>What if you copied them in, went about your business, accepted changes this way for weeks/months – but then realized you needed to go back to the version from January 6, 2014 for some reason? Perhaps you edited Main.java and made a whole bunch of changes and now wanted to back to a prior checkpoint?</li>
+				</ol>
+				<p>Well, in the case of #1, you’d hopefully make the corrections and email the files back around. Hmm, is that sustainable?</p>
+				<p>In the case of #2, you’d probably either curse to yourself while manually trying to merge your stuff with your teammates stuff. Then you would email the result around. What happens though if another team member was doing the same thing to the same files?</p>
+				<p>#3 can be really frustrating because you have to investigate the differences in your compile environments. Are you using different compiler versions? Did the person forget another file to send around? Is there a 3rd party dependence that was not shared? Did you make a change to your stuff that introduced a dependency that was modified? Have fun figuring that all out!</p>
+    			<p>And for #4 – well you could make a backup manually of each time a file has changed, and put in a directory like “archive” and manipulate filenames – so you might have “Main.Jan6.java.bak Main.Jan12.java.bak Events.Jan9.java.bak” and then use these to restore. But then you have to make sure you always make such backups and that you keep some metadata with it – why was the backup made, and what other files does it depend on?</p>
+    			<p>Sure, you can look at using shared file systems, like Dropbox, or a hard drive at a team member’s house exposed via a hole in their home firewall. But would these problems really change? Nah. What you really need is a managed directory tool – something that will track and merge changes. This is what Git does (and note, this is not a coding specific problem, and Git is not a coding specific tool!).</p>
+    			<p>So what does Git do? Git creates local compressed copies of files/directories you have placed under its management. The directory you are accustomed to working in is still where you do your work. But now Git creates a “hidden” directory (by default it is just .git) and stores potential changes and accepted changes. As you go about your work Git is there to make sure you can go back to previously check pointed versions, and can decide when you want to checkpoint new versions.</p>
+    			<p>The #1 thing to always remember about Git is that it is not a client/server tool. It is a local tool managing a local directory. It does not require a remote server at all. Of course, the collaboration scenarios are more interesting when it is used with a remote repository – but keep in mind that this is more a peer-to-peer (P2P) arrangement (notice I said remote repository, not remote server). Essentially the collaboration scenario is one of “how do I sync from my local repository with someone else repository out there, when I want and under the conditions I want and with only the stuff I want?”.</p>
+			</section>
+			<section id="content">
+				<h2>How is this different than traditional SCC?</h2>
+				<p>Traditional SCC tools have some similarities but some important differences. Like Git, traditional SCC tools like CVS and SVN will create local repositories in hidden directories. But the difference is what is in them. They store changes you have made to your workspace, not the entire set of files and all their changes. So they take up a lot less space, and can be faster when working with the server. What is better about Git then?</p>
+                <p><ul>
+                    <li>You can work locally most of the time. Your repository is local so you do not need to be connected. You can work on an airplane, while camping in Yosemite, or when your home network goes down.</li>
+                    <li>Most of your work is faster because it is local.</li>
+                    <li>You do not have to checkin/checkout as often (in fact ci/co doesn’t really make sense, which is why git uses its own verbs like “pull” “push” and “fetch” as we will see) and merges are easier and more self-selecting.</li>
+                    <li>You have greater flexibility in how you choose to work with others, both in ways you share your stuff or use their stuff.</li>
+                </ul></p>
+			</section>
+		</div>
+		<h2><a href="install.html">Click here to start the lab</a></h2>
+		<footer>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="install.html">Lab Exercise</a></li>
+				<li><a href="CST316 Spring 2014_ CST316 Spring 2014_ PRACTICE_ Git lab.pdf">Tutorial</a></li>
+				<li><a href="">Undo</a></li>	
+			</ul>
+			<p>Department of Software Engineering, Arizona State University.</p>
+		</footer>
+	</div>
+</body>
+</html>

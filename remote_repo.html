@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="Description" content="Your Title">
+    <meta name="author" content="Roopa Hiremath Chandrasekaraiah">
+    <meta name="Copyright" content="Copyright 2015 Arizona State University, all rights reserved.">
+	<title>Remote Repository</title>
+	<link rel="stylesheet" type="text/css" href="mystyles.css">	<!--[if IE]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<div id="container">
+		<header>
+			<h1>Source Code Management</h1>
+			<p class="description"> Working with Remote Repositories  </p>
+		</header>
+		<div id="wrapper">
+			<section id="content">
+				<h2>Cloning a repository  (git clone)</h2>
+				<ol>
+					<li>Go back to the working directory (I’ll call it work1) top/work1<br /><b>$ cd top/work1 $ &ltdelete all the files and directories except the .git directory&gt  
+					<br>$ mv .git/*  
+                    <br>$ rmdir .git 
+                    <br>$ &ltedit the file config and change the bare property to true&gt </b></li>
+                    <li>Now, from your work1 directory, go up one directory (cd ..), and create a second working directory (mkdir jekyll)</li>
+                    <li>Clone the directory<br /><b>$ git clone &ltpath to&gt/work1</li></b>
+                    				
+				</ol>
+			</section>
+			<section id="content">
+				<h2>Checking in a remote repository (git remote)</h2>
+				<ol>
+					<li>Let’s pretend top/work1 on your local machine is a remote “shared” repo, and top/jekyll/work1 is where you, as a developer, are doing your coding. Do the following: 
+					<b><br>$ cd top/jekyll/work1  <br />$ git remote –v</b></li>
+                    <li>Execute the following commands to create one more  directory top/hyde, and clone work1 again: <br><b>$ cd top 
+                        <br/>$ mkdir hyde 
+                        <br/>$ cd hyde 
+                        <br/>$ git clone &ltabsolute path to top/work1*gt
+                        <br/>$ cd work1 
+                        <br/>$git remote –v   </b></li>
+                   
+				</ol>
+			</section>
+		 
+			<section id="content">
+				<h2>Pushing repo contents (git push)</h2>
+				<ol>
+					<li>Make changes in the repsitry hyde/wrk1 as fllws:<b>
+                        <br/>$ git status  # yu shuld be in hyde/wrk1, verify yu are wrking n master
+                        <br/>$ &ltedit ButtnFrame.java&gt 
+                        <br/>$ &ltadd a text file named f.txt with 1 line f text in it&gt 
+                        <br/>$ git add &ltbth files&gt 
+                        <br/>$ git cmmit &ltbth files&gt 
+                        <br/>$ git status </b><br/>Note where it says “Your branch is ahead of ‘origin/master’ by 1 commit.” Funky stuff. Git knows you were cloned and maintaining a remote reference, so it is informing you of how your local work is getting out in front of the remote branch. So, how do you synch them up? If these were 2 local branches on the same repo, you would just do a fast-forward merge. But since we have 2 different repos, we have to tell git to push our stuff to the remote repo:</li>
+                    <li>Push the code to remote repository<br/><b>  $ git push origin master    </b></li>               				
+				</ol>
+			</section>
+			<section id="content">
+				<h2>Pulling repo contents (git pull)</h2>
+				<ol>
+					<li>Pull the code from remote repository<b>
+                        <br/>$ cd top/jekyll/work1 
+						<br/>$ git pull  </b></li>               					   		
+				</ol>
+			</section>
+				</br>
+			<submit> 
+		
+				 <b>Submit checkpoint #6:</b>  Before continuing, cd to top and make a jarfile of all 3 directories underneath and call it &ltasurite&gt.lab1-6.jar[zip]  
+				 
+		</submit>
+		</div>
+		<br/><br />
+		 
+		<section id="content">
+				 <table><th><h2>&lt&lt <a href="merging.html">Previous</a></th><th></th><th>  <div><h2><a href="remote_branch.html">Next</a>&gt&gt </h2> </div></th>
+				 </table>
+		</section>
+		
+	<footer>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="install.html">Lab Exercise</a></li>
+				<li><a href="CST316 Spring 2014_ CST316 Spring 2014_ PRACTICE_ Git lab.pdf">Tutorial</a></li>
+				<li><a href="">Undo</a></li>	
+			</ul>
+			<p>Department of Software Engineering, Arizona State University.</p>
+		</footer>
+	</div>
+</body>
+</html>

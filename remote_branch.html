@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="Description" content="Your Title">
+    <meta name="author" content="Roopa Hiremath Chandrasekaraiah">
+    <meta name="Copyright" content="Copyright 2015 Arizona State University, all rights reserved.">
+	<title>Remote Branching</title>
+	<link rel="stylesheet" type="text/css" href="mystyles.css">
+	<!--[if IE]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<div id="container">
+		<header>
+			<h1>Source Code Management</h1>
+			<p class="description">Remote Branching</p>
+		</header>
+		<div id="wrapper">
+			<section id="content">
+				<h2>Create a local branch and push it to the shared repository</h2>
+				<ol>
+					<li>Execute the below command to do so
+					<b><br/>$ cd top/Jekyll/work1 
+                        <br/>$ git checkout –b sidestuff 
+                        <br/>$ &ltedit ButtonFrame.java&gt 
+                        <br/>$ git status <br/>$ git commit –a 
+                        <br/>$ git status
+                        <br/>$ git push origin sidestuff  </b> # This pushes the new branch to the remote repository (origin)</li>
+				</ol>
+			</section>
+			<section id="content">
+				<h2>Get the new branch to local repo</h2>
+				<ol>
+					<li>Let’s pretend top/work1 on your local machine is a remote “shared” repo, and top/jekyll/work1 is where you, as a developer, are doing your coding. Do the following:
+					<b><br>$ cd top/jekyll/work1  <br />$ git remote –v</b></li>
+                    <li>Execute the following commands to create one more  directory top/hyde, and clone work1 again: <br><b>$ cd top 
+                        <br/>$ mkdir hyde 
+                        <br/>$ cd hyde 
+                        <br/>$ git clone &ltabsolute path to top/work1*gt
+                        <br/>$ cd work1 
+                        <br/>$git remote –v   </b></li>
+                   
+				</ol>
+			</section>
+		 
+			</br>
+			<submit> 
+		
+				 <b>Submit checkpoint #7:</b>  Before continuing, cd to top and make a jarfile of all 3 directories underneath and call it &ltasurite&gt.lab1-7.jar[zip]  
+				 
+		</submit>
+		</div>
+		<br/><br />
+		 
+		<section id="content">
+				 <table><th><h2>&lt&lt <a href="remote_repo.html">Previous</a></th><th></th><th>  <div><h2><a href="github.html">Next</a>&gt&gt </h2> </div></th>
+				 </table>
+		</section>
+		
+		<footer>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="install.html">Lab Exercise</a></li>
+				<li><a href="CST316 Spring 2014_ CST316 Spring 2014_ PRACTICE_ Git lab.pdf">Tutorial</a></li>
+				<li><a href="">Undo</a></li>	
+			</ul>
+			<p>Department of Software Engineering, Arizona State University.</p>
+		</footer>
+	</div>
+</body>
+</html>

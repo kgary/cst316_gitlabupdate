@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="Description" content="Your Title">
+    <meta name="author" content="Roopa Hiremath Chandrasekaraiah">
+    <meta name="Copyright" content="Copyright 2015 Arizona State University, all rights reserved.">
+	<title>GitHub</title>
+	<link rel="stylesheet" type="text/css" href="mystyles.css">
+	<!--[if IE]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<div id="container">
+		<header>
+			<h1>Source Code Management</h1>
+			<p class="description">Using GitHub</p>
+		</header>
+		<div id="wrapper">
+			<section id="content">
+				<h2>Creating github account</h2>
+				<ol>
+					<li>Open web browser and go to github.com and sign up for an account</li>
+				</ol>
+			</section>
+			<section id="content">
+				<h2> Create a new repository</h2>
+				<ol>
+					<li> Click on '+' icon and create a new repository </li>
+                    <li>Name the repository lab1git </li>
+                    <li>In the description put your name and your partner’s name </li>
+                    <li>Make sure it is public, and click the “Initialize this repository with a README” check-box</li>
+                    <li>In the Add .gitignore drop-down select Java 6. Press Create repository  </li>
+				</ol>
+			</section>
+			<section id="content">
+				<h2>Cloning to local repository</h2>
+				<ol>
+					<li>Execute the below command<b><br>$ git clone <a href="https://github.com/&ltusername&gt/lab1git.git"> https://github.com/&ltusername&gt/lab1git.git </a></b></li>
+					<li>Edit the code say   README.md and add a line<b>
+  					  <br>$ git status 
+                      <br>$ git remote –v # Take a look at the output here, instead of  we have https:// 
+                      <br>$ git add README.md 
+                      <br>$ git commit –m “1st change on GitHub” README.md 
+                      <br>$ git status 
+                      <br>$ git push origin master	</b>
+                    </li>
+				</ol>
+			</section>
+			<section id="content">
+				<h2>Remote Branching</h2>
+				<ol>
+					<li>Execute the below commands to branch remotely<b>
+  				      <br>$ git checkout –b testbranch 
+                      <br>$ Edit README.md and add another line
+                      <br>$ git commit –a 
+                      <br>$ git push origin testbranch</b>
+					</li>
+				</ol>
+			</section>
+			</div>
+		<br/><br />
+		 
+		<section id="content">
+				 <table><th><h2>&lt&lt <a href="remote_repo.html">Previous</a></th><th></th><th>  <div><h2><a href="egit.html">Next</a>&gt&gt </h2> </div></th>
+				 </table>
+		</section>
+		
+		<footer>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="install.html">Lab Exercise</a></li>
+				<li><a href="CST316 Spring 2014_ CST316 Spring 2014_ PRACTICE_ Git lab.pdf">Tutorial</a></li>
+				<li><a href="">Undo</a></li>	
+			</ul>
+			<p>Department of Software Engineering, Arizona State University.</p>
+		</footer>
+	</div>
+</body>
+</html>
