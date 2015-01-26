@@ -6,10 +6,24 @@
     <meta name="author" content="Roopa Hiremath Chandrasekaraiah">
     <meta name="Copyright" content="Copyright 2015 Arizona State University, all rights reserved.">
 	<title>GitHub</title>
-	<link rel="stylesheet" type="text/css" href="mystyles.css">
-	<!--[if IE]>
-	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
+	<link rel="stylesheet" type="text/css" href="CSS/mystyles.css">
+	<link rel="stylesheet" type="text/css" href="CSS/gen.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script>  
+        function hide( t,b1,b2) {
+         
+        document.getElementById(t).style.display = "none";
+        document.getElementById(b2).style.display="none"
+        document.getElementById(b1).style.display="inline"
+        }
+        
+        function show( t,b1,b2) {
+        
+        document.getElementById(t).style.display = "block";
+        document.getElementById(b1).style.display="none"
+        document.getElementById(b2).style.display="inline"
+        }
+    </script>
 </head>
 <body>
 	<div id="container">
@@ -17,15 +31,45 @@
 			<h1>Source Code Management</h1>
 			<p class="description">Using GitHub</p>
 		</header>
+		
+				<br />
+		<span class="ft15"> 
+				<a href="createRepo.html">Create</a>&nbsp&gt&gt&nbsp					
+			  	<a href="manage_local_repo.html">Manage</a>&nbsp&gt&gt&nbsp
+				<a href="branching.html">Branch</a>&nbsp&gt&gt&nbsp
+				<a href="merging.html">Merge</a>&nbsp&gt&gt&nbsp
+				<a href="remote_repo.html">Remote Repositories</a>&nbsp&gt&gt&nbsp
+				<a href="remote_branch.html">Remote Branch</a>&nbsp&gt&gt&nbsp
+				<span class="ft">GitHub&nbsp&gt&gt&nbsp </span>
+				<a href="egit.html">Eclipse Plugin</a>
+			</span>
+			
 		<div id="wrapper">
 			<section id="content">
-				<h2>Creating github account</h2>
+				
+				<table width="100%"><th align="left"><h2>Creating github account</th>
+				<th align="right">
+				  <button id="b1_create"    onclick=show('id_create','b1_create','b2_create') > ?</button>			
+                  <button id="b2_create" style="display:none;" onClick=hide('id_create','b1_create','b2_create')   >^</button>
+				</th>
+			</table>
 				<ol>
 					<li>Open web browser and go to github.com and sign up for an account</li>
 				</ol>
+				<block id="id_create">
+					   
+              <P class="p122 ft6">GitHub is merely a remote bare repository. Well OK it is a little more than that, it has facilities for Wikis, tracking issues, integrating with other tools (like Scrumwise and Jenkins, stay tuned…). To use GitHub you need to go to github.com and sign up for an account.</P>
+			  <P class="p122 ft6">GitHub provides a lot of material for newbies, like the bootcamp link you will see. In the middle of the screen after you signup (and after each time you sign in) you will see the 4 big boxes. The Set Up Git step you’ve basically already done, but they provide some <NOBR>platform-specific</NOBR> convenience features you may enjoy.</P>
+			</block>
 			</section>
 			<section id="content">
-				<h2> Create a new repository</h2>
+				 
+				<table width="100%"><th align="left"><h2>Create a new repository</th>
+				<th align="right">
+				  <button id="b1_create_repo"    onclick=show('id_create_repo','b1_create_repo','b2_create_repo') > ?</button>			
+                  <button id="b2_create_repo" style="display:none;" onClick=hide('id_create_repo','b1_create_repo','b2_create_repo')   >^</button>
+				</th>
+			</table>
 				<ol>
 					<li> Click on '+' icon and create a new repository </li>
                     <li>Name the repository lab1git </li>
@@ -33,9 +77,20 @@
                     <li>Make sure it is public, and click the “Initialize this repository with a README” check-box</li>
                     <li>In the Add .gitignore drop-down select Java 6. Press Create repository  </li>
 				</ol>
+				<block id="id_create_repo">
+				<P class="p123 ft28">You will be taken to the main display page for your new repository. Note there is a README.md and a .gitignore file in the repository already. Click on the .gitignore, you see it conveniently adds file extensions for files you do not want to put in source class="p124 ft6">control. Over time you will want to add other stuff (like Eclipse’s .project) as these files live in your working space but are not intended for source control. Otherwise you will get a lot of messages in your git status about having files you haven’t added to the repository yet, and it gets quite annoying. It is even more annoying if they are added by a teammate and then you end up with them when you pull – you don’t want someone else’s .project file, it will have that person’s paths in it!</P>
+                <P class="p15 ft6">Return to the main display page and get familiar with some of the visual features – you can browse files, commits, branches, etc. One thing you can do as well is clone the repository, see the URL near <NOBR>center-top</NOBR> that looks like <SPAN class="ft57">https://github.com/&lt;username&gt;/lab1git.git</SPAN>.</P>
+                
+			</block>
 			</section>
 			<section id="content">
-				<h2>Cloning to local repository</h2>
+				
+				<table width="100%"><th align="left"><h2>Cloning to local repository</th>
+				<th align="right">
+				  <button id="b1_clone"    onclick=show('id_clone','b1_clone','b2_clone') > ?</button>			
+                  <button id="b2_clone" style="display:none;" onClick=hide('id_clone','b1_clone','b2_clone')   >^</button>
+				</th>
+			</table>
 				<ol>
 					<li>Execute the below command<b><br>$ git clone <a href="https://github.com/&ltusername&gt/lab1git.git"> https://github.com/&ltusername&gt/lab1git.git </a></b></li>
 					<li>Edit the code say   README.md and add a line<b>
@@ -47,9 +102,22 @@
                       <br>$ git push origin master	</b>
                     </li>
 				</ol>
+				<block id="id_clone">
+
+                <P class="p34 ft6">On executing the git clone command, you get a lab1git directory with your .gitignore, README.md, and .git stuff in it. Edit the README.md and add a line. Now:</P>
+                <P class="p125 ft6">When pushing the changed to remote repository ,you will be prompted for the username and password you used when you signed up a minute ago. Because you are using https, it will ask you for credentials each time you push/pull. If you go back to your browser window you will see in a second that README.md has been updated out on GitHub. Whoop Whoop! You will also see that there have been 2 commits, and that you can go back and browse the code after each commit.</P>
+                <P class="p126 ft4">Note as well the output of git remote <NOBR>–v.</NOBR> Since we are using a true remote repository this time we need a <NOBR>network-enabled</NOBR> protocol. In reality git can support a number of protocols, including <SPAN class="ft3"></SPAN>, https://, ssh:// and git:// out of the box. Your team is welcome to setup ssh (http://goo.gl/WVo8R), which can help with the annoying credentials issue, but https should be sufficient for our use.</P>
+
+			</block>
 			</section>
 			<section id="content">
-				<h2>Remote Branching</h2>
+	
+				<table width="100%"><th align="left"><h2>Remote Branching</th>
+				<th align="right">
+				  <button id="b1_branch"    onclick=show('id_branch','b1_branch','b2_branch') > ?</button>			
+                  <button id="b2_branch" style="display:none;" onClick=hide('id_branch','b1_branch','b2_branch')   >^</button>
+				</th>
+			</table>
 				<ol>
 					<li>Execute the below commands to branch remotely<b>
   				      <br>$ git checkout –b testbranch 
@@ -57,25 +125,32 @@
                       <br>$ git commit –a 
                       <br>$ git push origin testbranch</b>
 					</li>
-				</ol>
+				</ol>	
+			<block id="id_branch">
+				<P class="p127 ft6">Now back in your browser, in the branch dropdown in the upper left (under “Code”) you will see testbranch show up. <NOBR>Easy-peasy!</NOBR></P>
+<P class="p128 ft4">Now collaborate with a partner. In the Setting menu of your lab1git project (see upper right), you have a Collaborators link. Add your lab partner to yours, and <NOBR>vice-versa.</NOBR> Clone each other’s repos, make a change to README.md, and push. Double <NOBR>easy-peasy!</NOBR></P>
+<P class="p129 ft6">For your projects one of the team members should initialize the codeline under a public repository, and add the rest of his/her team to it as Collaborators. Also add me, user cst316.</P>
+
+			</block>
+				
 			</section>
-			</div>
+			 
+  			 
+  			</div>
 		<br/><br />
 		 
-		<section id="content">
-				 <table><th><h2>&lt&lt <a href="remote_repo.html">Previous</a></th><th></th><th>  <div><h2><a href="egit.html">Next</a>&gt&gt </h2> </div></th>
-				 </table>
-		</section>
-		
+		<table width="100%">
+      		<th align="left"><h2>&lt&lt <a href="remote_branch.html" >Previous</a></h2></th>
+
+      		<th align="right"><h2><a href="egit.html">Next</a>&gt&gt </h2></th>
+  		 </table>
 		<footer>
 			<ul>
-				<li><a href="index.html">Home</a></li>
-				<li><a href="install.html">Lab Exercise</a></li>
-				<li><a href="CST316 Spring 2014_ CST316 Spring 2014_ PRACTICE_ Git lab.pdf">Tutorial</a></li>
-				<li><a href="">Undo</a></li>	
+				<li><a href="index.html">Home</a></li>				
+								 
 			</ul>
-			<p>Department of Software Engineering, Arizona State University.</p>
+			<p>The Software Enterprise @ ASU, copyright (c) Kevin A. Gary 2015</p>
 		</footer>
-	</div>
+		</div>
 </body>
 </html>

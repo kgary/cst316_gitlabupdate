@@ -6,10 +6,24 @@
     <meta name="author" content="Roopa Hiremath Chandrasekaraiah">
     <meta name="Copyright" content="Copyright 2015 Arizona State University, all rights reserved.">
 	<title>Remote Branching</title>
-	<link rel="stylesheet" type="text/css" href="mystyles.css">
-	<!--[if IE]>
-	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
+	<link rel="stylesheet" type="text/css" href="CSS/mystyles.css">
+	<link rel="stylesheet" type="text/css" href="CSS/gen.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script>  
+        function hide( t,b1,b2) {
+         
+        document.getElementById(t).style.display = "none";
+        document.getElementById(b2).style.display="none"
+        document.getElementById(b1).style.display="inline"
+        }
+        
+        function show( t,b1,b2) {
+        
+        document.getElementById(t).style.display = "block";
+        document.getElementById(b1).style.display="none"
+        document.getElementById(b2).style.display="inline"
+        }
+    </script>
 </head>
 <body>
 	<div id="container">
@@ -17,9 +31,25 @@
 			<h1>Source Code Management</h1>
 			<p class="description">Remote Branching</p>
 		</header>
+				<br />
+		<span class="ft15"> 
+				<a href="createRepo.html">Create</a>&nbsp&gt&gt&nbsp					
+			  	<a href="manage_local_repo.html">Manage</a>&nbsp&gt&gt&nbsp
+				<a href="branching.html">Branch</a>&nbsp&gt&gt&nbsp
+				<a href="merging.html">Merge</a>&nbsp&gt&gt&nbsp
+				<a href="remote_repo.html">Remote Repositories</a>&nbsp&gt&gt&nbsp
+				<span class="ft">Remote Branch&nbsp&gt&gt&nbsp </span>
+				<a href="github.html">GitHub</a>&nbsp&gt&gt&nbsp
+				<a href="egit.html">Eclipse Plugin</a>
+			</span>
 		<div id="wrapper">
 			<section id="content">
-				<h2>Create a local branch and push it to the shared repository</h2>
+				<table width="100%"><th align="left"><h2>Create a local branch and push it to the shared repository</th>
+				<th align="right">
+				  <button id="b1_remote_branch_push"    onclick=show('id_remote_branch_push','b1_remote_branch_push','b2_remote_branch_push') > ?</button>			
+                  <button id="b2_remote_branch_push" style="display:none;" onClick=hide('id_remote_branch_push','b1_remote_branch_push','b2_remote_branch_push')   >^</button>
+				</th>
+			</table>
 				<ol>
 					<li>Execute the below command to do so
 					<b><br/>$ cd top/Jekyll/work1 
@@ -29,45 +59,59 @@
                         <br/>$ git status
                         <br/>$ git push origin sidestuff  </b> # This pushes the new branch to the remote repository (origin)</li>
 				</ol>
+			<block id="id_remote_branch_push">
+					   
+              <P class="p119 ft6">So far pushed/pulled to/from local/remote branches. There were 3 distinct repositories, in top/work1, top/Jekyll/work1, and top/hyde/work1. In each distinct repository there is a branch called <SPAN class="ft25">master</SPAN>. Further, in Jekyll and hyde there are references to remote branches under the name <SPAN class="ft25">origin</SPAN>, each of which point to top/work1’s <SPAN class="ft25">master </SPAN>branch.</P>
+			  <P class="p119 ft6">Now consider this scenario: Jekyll and Hyde are on a team with Holmes and Watson. But Jekyll and Hyde are currently working on an issue collaboratively and want to share work through the shared repository. Yet, they do not want to interfere with the work of the rest of the team (Holmes and Watson). They need a branch they can refer to that is in a shared spot but just for them – they need a branch in the top/work1 repository. How do you do this? Simple, create a local branch and push it to the shared repository.</P>
+
+              
+			</block>
 			</section>
 			<section id="content">
-				<h2>Get the new branch to local repo</h2>
+				 
+				<table width="100%"><th align="left"><h2>Get the new branch to local repo</th>
+				<th align="right">
+				  <button id="b1_remote_branch_pull"    onclick=show('id_remote_branch_pull','b1_remote_branch_pull','b2_remote_branch_pull') > ?</button>			
+                  <button id="b2_remote_branch_pull" style="display:none;" onClick=hide('id_remote_branch_pull','b1_remote_branch_pull','b2_remote_branch_pull')   >^</button>
+				</th>
+			</table>
 				<ol>
-					<li>Let’s pretend top/work1 on your local machine is a remote “shared” repo, and top/jekyll/work1 is where you, as a developer, are doing your coding. Do the following:
-					<b><br>$ cd top/jekyll/work1  <br />$ git remote –v</b></li>
-                    <li>Execute the following commands to create one more  directory top/hyde, and clone work1 again: <br><b>$ cd top 
-                        <br/>$ mkdir hyde 
-                        <br/>$ cd hyde 
-                        <br/>$ git clone &ltabsolute path to top/work1*gt
-                        <br/>$ cd work1 
-                        <br/>$git remote –v   </b></li>
+					<li>Now Jekyll becomes Mr. Hide <br><b>$ cd top 
+                       <br/>$ cd top/hyde/work1
+ 					   <br/>$ git pull
+ 					   <br/>$ git checkout sidestuff
+					   <br/>$ git checkout master</b></li>
                    
 				</ol>
+			<block id="id_remote_branch_pull">
+	<P class="p120 ft26"><SPAN class="ft26">#</SPAN><SPAN class="ft29">After $ git checkout sidestuff look at ButtonFrame.java, it should have your </SPAN><NOBR>sidestuff-only</NOBR> changes $ git checkout master</P>
+<P class="p30 ft18"><SPAN class="ft18">#</SPAN><SPAN class="ft23">After $ git checkout look at ButtonFrame.java, it does not have your </SPAN><NOBR>sidestuff-only</NOBR> changes</P>
+</block>
 			</section>
 		 
-			</br>
-			<submit> 
-		
-				 <b>Submit checkpoint #7:</b>  Before continuing, cd to top and make a jarfile of all 3 directories underneath and call it &ltasurite&gt.lab1-7.jar[zip]  
-				 
-		</submit>
-		</div>
+			<section>
+			<br>
+				<div align="center"> <b>Create Tag: </b> $git tag 'v6.0'</div>
+				<div align="center"> <b>Start with previous version: </b>$ git reset --hard 'v5.0'</div>
+		    </section>
+  			 
+  			</div>
 		<br/><br />
 		 
-		<section id="content">
-				 <table><th><h2>&lt&lt <a href="remote_repo.html">Previous</a></th><th></th><th>  <div><h2><a href="github.html">Next</a>&gt&gt </h2> </div></th>
-				 </table>
-		</section>
-		
+		<table width="100%">
+      		<th align="left"><h2>&lt&lt <a href="remote_repo.html" >Previous</a></h2></th>
+
+      		<th align="right"><h2><a href="github.html">Next</a>&gt&gt </h2></th>
+  		 </table>
 		<footer>
 			<ul>
-				<li><a href="index.html">Home</a></li>
-				<li><a href="install.html">Lab Exercise</a></li>
-				<li><a href="CST316 Spring 2014_ CST316 Spring 2014_ PRACTICE_ Git lab.pdf">Tutorial</a></li>
-				<li><a href="">Undo</a></li>	
+				<li><a href="index.html">Home</a></li>				
+								 
 			</ul>
-			<p>Department of Software Engineering, Arizona State University.</p>
+			<p>The Software Enterprise @ ASU, copyright (c) Kevin A. Gary 2015</p>
 		</footer>
+		 
+		 
 	</div>
 </body>
 </html>

@@ -6,10 +6,25 @@
     <meta name="author" content="Roopa Hiremath Chandrasekaraiah">
     <meta name="Copyright" content="Copyright 2015 Arizona State University, all rights reserved.">
 	<title>Create git Repository</title>
-	<link rel="stylesheet" type="text/css" href="mystyles.css">
-	<!--[if IE]>
-	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
+	<link rel="stylesheet" type="text/css" href="CSS/mystyles.css">
+	<link rel="stylesheet" type="text/css" href="CSS/gen.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script>  
+        function hide( t,b1,b2) {
+         
+        document.getElementById(t).style.display = "none";
+        document.getElementById(b2).style.display="none"
+        document.getElementById(b1).style.display="inline"
+        }
+        
+        function show( t,b1,b2) {
+        
+        document.getElementById(t).style.display = "block";
+        document.getElementById(b1).style.display="none"
+        document.getElementById(b2).style.display="inline"
+        }
+    </script>
+
 </head>
 <body>
 	<div id="container">
@@ -17,58 +32,109 @@
 			<h1>Source Code Management</h1>
 			<p class="description">Creating Local Git Repository</p>
 		</header>
+		<br />
+		<span class="ft15"> 	
+			  	<span class="ft">
+				 Create &nbsp&gt&gt&nbsp </span>
+				<a href="manage_local_repo.html">Manage</a>&nbsp&gt&gt&nbsp
+				<a href="branching.html">Branch</a>&nbsp&gt&gt&nbsp
+				<a href="merging.html">Merge</a>&nbsp&gt&gt&nbsp
+				<a href="remote_repo.html"> Remote Repositories</a>&nbsp&gt&gt&nbsp
+				<a href="remote_branch.html">Remote Branch</a>&nbsp&gt&gt&nbsp
+				<a href="github.html">GitHub</a>&nbsp&gt&gt&nbsp
+				<a href="egit.html">Eclipse Plugin</a>
+			</span>
 		<div id="wrapper">
 			<section id="content">
-				<h2>Initialize git repository (git init)</h2>
+				<table width="100%"><th align="left"><h2>Initialize git repository (<a href="http://git-scm.com/docs/git-status">git init</a>)</th>
+				<th align="right">
+				  <button id="b1" style="display:none;"   onclick=show('am','b1','b2') > ?</button>			
+                  <button id="b2" style="display:none;" onClick=hide('am','b1','b2')   >^</button>
+				</th></table>
+				
 				<ol>
-					<li>Grab the files from the github link on our moodle site. In a clean directory named “work”, unjar the contents. You will see it is a simple source tree with a few other things thrown in. </li>
+					<li>Download files from  <a href="resources/labgit-master.zip" target="_blank"    >here</a> . In a clean directory named “work”, unjar the contents. You will see it is a simple source tree with a few other things thrown in. </li>
 					<li>At the command line, in the directory in which you unjarred the given file execute the below command to initialize repository</br>
 					<b>$ git init</b></li>
 					<li>Check out the contents of this hidden directory:</br><b>$ ls –la .git</b></li>
 				</ol>
+			
 			</section>
 			<section id="content">
-				<h2>Add contents to git repository (git add)</h2>
+			<table width="100%"><th align="left"><h2>Add contents to git repository  (<a href="http://git-scm.com/docs/git-add">git add</a>)</th>
+			<th align="right">
+				  <button id="b1" style="display:none;"   onclick=show('am','b1','b2') > ?</button>			
+                  <button id="b2" style="display:none;" onClick=hide('am','b1','b2')   >^</button>
+			</th></table>
 				<ol>
     				<li>Execute the commands to add contents to the repository</br><b>$ git add *.java </br>$ git add </b>&ltthe rest of the stuff&gt  </li>
     			</ol>
 			</section>
 			<section id="content">
-				<h2>Check repo status (git status)</h2>
+				<table width="100%"><th align="left"><h2>Check repo status  (<a href="http://git-scm.com/docs/git-status">git status</a>)</th>
+				<th align="right">
+				  <button id="b1_status"  onclick=show('id_status','b1_status','b2_status') > ?</button>			
+                  <button id="b2_status" style="display:none;" onClick=hide('id_status','b1_status','b2_status')   >^</button>
+				</th></table>
+
 				<ol>
     				<li>Verify the status of the Git repository with the following command</br><b>$ git status</b></li>
     			</ol>
+				<block id="id_status">
+			 		<P class="p29 ft6">A whole bunch of stuff comes back with the header:</P>
+                    <P class="p30 ft18"><SPAN class="ft18">#</SPAN><SPAN class="ft23">On branch master</SPAN></P>
+                    <P class="p31 ft18"><SPAN class="ft18">#</SPAN><SPAN class="ft23">Initial commit</SPAN></P>
+                    <P class="p25 ft18">#</P>
+                    <P class="p30 ft18"><SPAN class="ft18">#</SPAN><SPAN class="ft23">Changes to be committed:</SPAN></P>
+                    <P class="p32 ft18"><SPAN class="ft18">#</SPAN><SPAN class="ft24">(use "git rm </SPAN><NOBR>--cached</NOBR> &lt;file&gt;..." to unstage)</P>
+                    <P class="p33 ft6">and a bunch of “new file: &lt;your file&gt;” lines. What does it mean? Well, git is aware you are adding new files, but says they are not <SPAN class="ft25">committed</SPAN>. In git terms these files are <SPAN class="ft25">staged </SPAN>(note the last line about how to <SPAN class="ft25">unstage </SPAN>a file). So let’s commit.</P>
+
+				</block>	
 			</section>
 			<section id="content">
-				<h2>Commit repo contents (git  commit)</h2>
+			<table width="100%"><th align="left"><h2>Commit repo contents  (<a href="http://git-scm.com/docs/git-commit">git commit</a>)</th>
+				<th align="right">
+				  <button id="b1_commit"  onclick=show('id_commit','b1_commit','b2_commit') > ?</button>			
+                  <button id="b2_commit" style="display:none;" onClick=hide('id_commit','b1_commit','b2_commit')   >^</button>
+				</th></table>
+
 				<ol>
     				<li>Store the changes to Git repository with the following command</br><b>$ git commit –m “Initial commit of my stuff” . </b></li>
     			</ol>
+				<block id="id_commit">
+					   <P class="p34 ft6">You should get a message back saying</P>
+                        <P class="p25 ft18">[master <NOBR>(root-commit)</NOBR> 9c8baf6] Initial commit of test source 31 files changed, 4782 insertions(+), 0 <NOBR>deletions(-)</NOBR></P>
+                        <P class="p25 ft18">create mode …</P>
+				</block>
+				
+				
 			</section>
 			 
-			</br>
-			<submit> 
+			
+			<section>
+			<br>
+				<div align="center"> <b>Create Tag: </b> $git tag 'v1.0'</div>
+				<div align="center"> <b>Start From the biginning: </b>Follow from step 1 in different folder</div>
+		    </section><!--submit> 
 		
 				 <b>Submit checkpoint #1:</b> jar/zip up your working directory (including the .git subdirectory) to a file named &ltasurite&gt.lab1-1.jar[zip]  
 				 
-		</submit>
+		</submit-->
 		</div>
 		<br/><br />
 		 
-		<section id="content">
-				 <table><th><h2>&lt&lt <a href="install.html">Previous</a></th><th></th><th>  <div><h2><a href="manage_local_repo.html">Next</a>&gt&gt </h2> </div></th>
-				 </table>
-		</section>
+		 
+  		<table width="100%"><th align="left"><h2>&lt&lt <a href="install.html">Previous</a></th> <th align="right">   <h2><a href="manage_local_repo.html">Next</a>&gt&gt </h2>  </th>
+  		 </table>
+		 
 		
 		
 		<footer>
 			<ul>
-				<li><a href="index.html">Home</a></li>
-				<li><a href="install.html">Lab Exercise</a></li>
-				<li><a href="CST316 Spring 2014_ CST316 Spring 2014_ PRACTICE_ Git lab.pdf">Tutorial</a></li>
-				<li><a href="">Undo</a></li>	
+				<li><a href="index.html">Home</a></li>				
+								 
 			</ul>
-			<p>Department of Software Engineering, Arizona State University.</p>
+			<p>The Software Enterprise @ ASU, copyright (c) Kevin A. Gary 2015</p>
 		</footer>
 	</div>
 </body>

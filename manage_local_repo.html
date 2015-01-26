@@ -6,10 +6,35 @@
     <meta name="author" content="Roopa Hiremath Chandrasekaraiah">
     <meta name="Copyright" content="Copyright 2015 Arizona State University, all rights reserved.">
 	<title>Manage Local Repository</title>
-	<link rel="stylesheet" type="text/css" href="mystyles.css">
-	<!--[if IE]>
-	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
+	<link rel="stylesheet" type="text/css" href="CSS/mystyles.css">
+	<link rel="stylesheet" type="text/css" href="CSS/gen.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script>  
+        function hide( t,b1,b2) {
+         
+        document.getElementById(t).style.display = "none";
+        document.getElementById(b2).style.display="none"
+        document.getElementById(b1).style.display="inline"
+        }
+        
+        function show( t,b1,b2) {
+        
+        document.getElementById(t).style.display = "block";
+        document.getElementById(b1).style.display="none"
+        document.getElementById(b2).style.display="inline"
+        }
+		
+		function undo(t){
+		alert(t)
+		var msg="Execute the command: \""+t+"\" to revert all the changes done in this page";
+		alert(msg);
+		}
+		function call(){
+
+alert('hello');
+} 
+		
+    </script>
 </head>
 <body>
 	<div id="container">
@@ -17,64 +42,145 @@
 			<h1>Source Code Management</h1>
 			<p class="description">Managing Local Git Repository</p>
 		</header>
+		
+		<br />
+		<span class="ft15"> 
+			  	<a href="createRepo.html">Create</a>&nbsp&gt&gt&nbsp								
+			  	<span class="ft">Manage</a>&nbsp&gt&gt&nbsp </span>
+				<a href="branching.html">Branch</a>&nbsp&gt&gt&nbsp
+				<a href="merging.html">Merge</a>&nbsp&gt&gt&nbsp
+				<a href="remote_repo.html"> Remote Repositories</a>&nbsp&gt&gt&nbsp
+				<a href="remote_branch.html">Remote Branch</a>&nbsp&gt&gt&nbsp
+				<a href="github.html">GitHub</a>&nbsp&gt&gt&nbsp
+				<a href="egit.html">Eclipse Plugin</a>
+		</span>
+			
+			
+			
 		<div id="wrapper">
 			<section id="content">
-				<h2>Edit a file and check the status (git status)</h2>
+			<table width="100%"><th align="left"><h2>Edit a file and check the status (git status)</th>
+				<th align="right">
+				  <button id="b1_status"    onclick=show('id_status','b1_status','b2_status') > ?</button>			
+                  <button id="b2_status" style="display:none;" onClick=hide('id_status','b1_status','b2_status')   >^</button>
+				</th></table>
+
 				<ol>
 					<li>Open ButtonFrame.java in any text editor (don’t go Eclipse yet) and add a few lines and delete a few lines (comment lines are fine).</li>
 					<li>Check the status</br>
 					<b>$git status</b></li>
 				</ol>
+				<block id="id_status">
+					   <P class="p24 ft6">You should see:</P>
+                        <P class="p30 ft18"><SPAN class="ft18">#</SPAN><SPAN class="ft23">On branch master</SPAN></P>
+                        <P class="p30 ft26"><SPAN class="ft26">#</SPAN><SPAN class="ft29">Changes not staged for commit:</SPAN></P>
+                        <P class="p30 ft26"><SPAN class="ft26">#</SPAN><SPAN class="ft30">(use "git add &lt;file&gt;..." to update what will be committed)</SPAN></P>
+                        <P class="p30 ft26"><SPAN class="ft26">#</SPAN><SPAN class="ft30">(use "git checkout </SPAN><NOBR>--</NOBR> &lt;file&gt;..." to discard changes in working directory)</P>
+                        <P class="p40 ft18"><SPAN class="ft18">#</SPAN><SPAN class="ft31">modified: &lt;whatever file you edited here&gt;</SPAN></P>
+                        <P class="p25 ft18">#</P>
+                        <P class="p41 ft18">no changes added to commit (use "git add" and/or "git commit <NOBR>-a")</NOBR></P>
+                        <P class="p42 ft33">Note it says “Changes not staged” – it knows you made changes but is telling you that you haven’t indicated you want those changes to be managed. It suggests either doing a “git add &lt;file&gt;” to <SPAN class="ft32">stage </SPAN>or a “git checkout &lt;file&gt;” to discard what you have done. Why?</P>
+						
+				</block>
+				
 			</section>
+			
 			<section id="content">
-				<h2>Add/Discard or Remove a file from/to git repository (git add, git checkout, git rm)</h2>
+			<table width="100%"><th align="left"><h2>Un-stage a file  (git reset)</th>
+				<th align="right">
+				  <button id="b1_reset"    onclick=show('id_reset','b1_reset','b2_reset') > ?</button>			
+                  <button id="b2_reset" style="display:none;" onClick=hide('id_reset','b1_reset','b2_reset')   >^</button>
+				</th></table>
+				 
+				<ol>
+    				<li>Undo the changes</br><b>$ git reset HEAD ButtonFrame.java </b></li>
+    			</ol>
+				<block id="id_reset">
+                    <P class="p43 ft5"><SPAN class="ft6">-</SPAN><SPAN class="ft34">git add can be confusing because you intuitively think “hey I already added that file to the repo, why do I have to do it again?” Well the answer is you need to add a new copy of the file to the repo, a process called </SPAN><SPAN class="ft35">staging</SPAN>; since you made changes to it.</P>
+                    <P class="p18 ft6"><SPAN class="ft6">-</SPAN><SPAN class="ft15">Git checkout is really shorthand for saying “I want my stored copy back”; it is like copying “Main.Jan6.java.bak” to “Main.java”</SPAN></P>
+                    <P class="p7 ft14">– you are basically saying I no longer want the edits I was just doing.</P>
+                    <P class="p44 ft6"><SPAN class="ft6">-</SPAN><SPAN class="ft15">So what you are doing with both options is really just file manipulation between the copy in your working directory and the compressed, binary version in the .git directory somewhere.</SPAN></P>
+                    <P class="p23 ft6">Go ahead and add the file and run git status again. Note even after <SPAN class="ft25">staging </SPAN>you can still decide to go back:</P>
+                    <P class="p30 ft18"><SPAN class="ft18">#</SPAN><SPAN class="ft24">(use "git reset HEAD &lt;file&gt;..." to unstage)</SPAN></P>
+                    <P class="p21 ft6">Go ahead and try it:</P>
+                    <P class="p25 ft18">$ git reset HEAD ButtonFrame.java</P>
+                    <P class="p45 ft33">And what do you have to do after this to discard altogether? Go ahead and do it, then edit the file again. You should notice the changes have vanished. Make some minor changes and repeat the steps above, except let’s add and commit changes at the same time:</P>
+					<P class="p25 ft18">$ git commit <NOBR>–a</NOBR></P>	
+					<P class="p46 ft6">This is a convenience that will add and commit all changes in your working directory in one step. I don’t normally use it because I don’t want to commit something accidentally, but in this case we are only manipulating one file.</P>
+                   			
+				</block>				
+			</section>
+			
+			<section id="content">
+				
+				<table width="100%"><th align="left"><h2>Add/Discard or Remove a file from/to git repository (git add, git checkout, git rm)</th>
+				<th align="right">
+				  <button id="b1_add"    onclick=show('id_add','b1_add','b2_add') > ?</button>			
+                  <button id="b2_add" style="display:none;" onClick=hide('id_add','b1_add','b2_add')   >^</button>
+				</th></table>
+				 
 				<ol>
     				<li>Add ButtonFrame.java to the repository<br/><b> $git add ButtonFrame.java</b>  </li>
                     <li>Remove ButtonFrame.java from the repository<br/><b> $git rm ButtonFrame.java</b>  </li>
                     <li>Move ButtonFrame.java from the repository<br/><b> $git mv &ltfrom&gt &ltto&gt </b>  </li>
     			</ol>
+				<block id="id_add">
+                    <P class="p47 ft20">If we can add and modify files, what about removing? Simple enough: <SPAN class="ft19">$ git rm ButtonFrame.java</SPAN></P>
+                    <P class="p48 ft37">This will remove it from the repo and adds the convenience of removing it from the working directory. What is nice is that since git stores objects and their entire histories, you can easily restore by using your reset and checkout commands. For convenience sake you can also move files around (which is also how you rename in Unix) using <SPAN class="ft36">git mv &lt;from&gt; &lt;to&gt; </SPAN>which is really just a convenience for moving it the standard way (Unix <SPAN class="ft36">mv</SPAN>) and then doing a <SPAN class="ft36">git rm </SPAN>followed by a <SPAN class="ft36">git add</SPAN>.</P>
+                    		
+				</block>
+				
 			</section>
 			<section id="content">
-				<h2>Un-stage a file  (git reset)</h2>
-				<ol>
-    				<li>Undo the changes</br><b>$ git reset HEAD ButtonFrame.java </b></li>
-    			</ol>
-			</section>
-			<section id="content">
-				<h2>Check history of repo contents (git show)</h2>
-				<ol>
+			<table width="100%"><th align="left"><h2>Check history of repo contents (git show)</th>
+				<th align="right">
+				  <button id="b1_show"    onclick=show('id_show','b1_show','b2_show') > ?</button>			
+                  <button id="b2_show" style="display:none;" onClick=hide('id_show','b1_show','b2_show')   >^</button>
+				</th></table>
+				 <ol>
     				<li>Display the hostory</br><b>$ git show ButtonFrame.java </b></li>
     			</ol>
+				<block id="id_show">
+                    <P class="p49 ft20">You may want to periodically check the history and other metadata about your files. Use the git show command for this: <SPAN class="ft19">$ git show ButtonFrame.java</SPAN></P>
+                     	
+				</block>
 			</section>
 			<section id="content">
-				<h2>Find difference between repo contents (git diff)</h2>
+			<table width="100%"><th align="left"><h2>Find difference between repo contents (git diff)</th>
+				<th align="right">
+				  <button id="b1_diff"    onclick=show('id_diff','b1_diff','b2_diff') > ?</button>			
+                  <button id="b2_diff" style="display:none;" onClick=hide('id_diff','b1_diff','b2_diff')   >^</button>
+				</th></table>
+				
 				<ol>
     				<li>Display the difference</br><b>$ git diff ButtonFrame.java</b></li>
     			</ol>
+				<block id="id_diff">
+                    <P class="p50 ft4">git show will only show you the transactions on the repo. What about the scenario where you are editing a file but haven’t committed yet, and want to check on how it compares to the copy in the repo? Git has its own flavor of the Unix diff command:</P>
+                    <P class="p25 ft18">$ git diff ButtonFrame.java</P>			
+				</block>
 			</section>
 			
-			 
-			</br>
-			<submit> 
-		
-				 <b>Submit checkpoint #2:</b>  jar/zip up your working directory (including the .git subdirectory) to a file named  &ltasurite&gt.lab1-2.jar[zip]  
-				 
-		</submit>
+			<section>
+			<br>
+				<div align="center"> <b>Create Tag: </b> $git tag 'v2.0'</div>
+				<div align="center"> <b>Start with previous version: </b>$ git reset --hard 'v1.0'</div>
+		    </section>
+			
 		</div>
 		<br/><br />
 		 
-		<section id="content">
-				 <table><th><h2>&lt&lt <a href="createRepo.html">Previous</a></th><th></th><th>  <div><h2><a href="branching.html">Next</a>&gt&gt </h2> </div></th>
-				 </table>
-		</section>
+		<table width="100%">
+      		<th align="left"><h2>&lt&lt <a href="createRepo.html" >Previous</a></h2></th>
+
+      		<th align="right"><h2><a href="branching.html">Next</a>&gt&gt </h2></th>
+  		 </table>
 		<footer>
 			<ul>
-				<li><a href="index.html">Home</a></li>
-				<li><a href="install.html">Lab Exercise</a></li>
-				<li><a href="CST316 Spring 2014_ CST316 Spring 2014_ PRACTICE_ Git lab.pdf">Tutorial</a></li>
-				<li><a href="">Undo</a></li>	
+				<li><a href="index.html">Home</a></li>				
+								 
 			</ul>
-			<p>Department of Software Engineering, Arizona State University.</p>
+			<p>The Software Enterprise @ ASU, copyright (c) Kevin A. Gary 2015</p>
 		</footer>
 	</div>
 </body>

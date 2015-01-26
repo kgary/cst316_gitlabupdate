@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -6,9 +6,24 @@
     <meta name="author" content="Roopa Hiremath Chandrasekaraiah">
     <meta name="Copyright" content="Copyright 2015 Arizona State University, all rights reserved.">
 	<title>Remote Repository</title>
-	<link rel="stylesheet" type="text/css" href="mystyles.css">	<!--[if IE]>
-	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
+	<link rel="stylesheet" type="text/css" href="CSS/mystyles.css">
+	<link rel="stylesheet" type="text/css" href="CSS/gen.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script>  
+        function hide( t,b1,b2) {
+         
+        document.getElementById(t).style.display = "none";
+        document.getElementById(b2).style.display="none"
+        document.getElementById(b1).style.display="inline"
+        }
+        
+        function show( t,b1,b2) {
+        
+        document.getElementById(t).style.display = "block";
+        document.getElementById(b1).style.display="none"
+        document.getElementById(b2).style.display="inline"
+        }
+    </script>
 </head>
 <body>
 	<div id="container">
@@ -16,9 +31,26 @@
 			<h1>Source Code Management</h1>
 			<p class="description"> Working with Remote Repositories  </p>
 		</header>
+				<br />
+				 
+				<span class="ft15"> 
+				<a href="createRepo.html">Create</a>&nbsp&gt&gt&nbsp					
+			    <a href="manage_local_repo.html">Manage</a>&nbsp&gt&gt&nbsp
+				<a href="branching.html">Branch</a>&nbsp&gt&gt&nbsp
+				<a href="merging.html">Merge</a>&nbsp&gt&gt&nbsp
+				<span class="ft">Remote Repositories &nbsp&gt&gt&nbsp </span>
+				<a href="remote_branch.html">Remote Branch</a>&nbsp&gt&gt&nbsp
+				<a href="github.html">GitHub</a>&nbsp&gt&gt&nbsp
+				<a href="egit.html">Eclipse Plugin</a>
+			</span>
 		<div id="wrapper">
 			<section id="content">
-				<h2>Cloning a repository  (git clone)</h2>
+				<table width="100%"><th align="left"><h2>Cloning a repository  (git clone)</th>
+				<th align="right">
+				  <button id="b1_clone"    onclick=show('id_clone','b1_clone','b2_clone') > ?</button>			
+                  <button id="b2_clone" style="display:none;" onClick=hide('id_clone','b1_clone','b2_clone')   >^</button>
+				</th>
+			</table>
 				<ol>
 					<li>Go back to the working directory (I’ll call it work1) top/work1<br /><b>$ cd top/work1 $ &ltdelete all the files and directories except the .git directory&gt  
 					<br>$ mv .git/*  
@@ -28,9 +60,64 @@
                     <li>Clone the directory<br /><b>$ git clone &ltpath to&gt/work1</li></b>
                     				
 				</ol>
+			<block id="id_clone">
+				<P class="p25 ft6">To work on this part, we need to modify your local repository. Go back to the working directory (I’ll call it work1) top/work1:</P>
+                <P class="p25 ft6">delete all the files and directories except the .git directory. Edit the file <SPAN class="ft48">config </SPAN></P>
+                <P class="p58 ft6">What is this zaniness? It converts your <NOBR>non-bare</NOBR> repo into a bare repo. Notice how this “bare” repository has all the stuff you saw in the .git subdirectory before. Bare repos are a strange and confusing bird at first; basically just remember they are used as a place where multiple developers will be synching against remotely, and nobody is doing any actual work in (which is why the git stuff is in the directory and there are no code files).</P>
+                <P class="p85 ft6">Now, from your work1 directory, go up one directory (cd ..), and create a second working directory (mkdir jekyll). After doing this you should have this structure:</P>
+                <P class="p86 ft6">___ work1____</P>
+                <P class="p87 ft6">/ \___ git stuff Top ___/</P>
+                <P class="p88 ft6">\</P>
+                <P class="p89 ft6"><NOBR>-------</NOBR> jekyll</P>
+                <P class="p21 ft6">cd to jekyll. We want to create a new repo here <SPAN class="ft25">from the state of the existing repo </SPAN>over in work1. git clone does this:</P>
+				<P class="p34 ft6">git will respond that it did so. But now look at your directory structure:</P>
+          <P class="p88 ft6">_____ work1____</P>
+          <TABLE cellpadding=0 cellspacing=0 class="t2">
+          <TR>
+          	<TD class="tr6 td8"><P class="p90 ft6">/</P></TD>
+          	<TD class="tr6 td9"><P class="p91 ft6">\___ git stuff</P></TD>
+          </TR>
+          <TR>
+          	<TD class="tr3 td8"><P class="p92 ft5">Top ___/</P></TD>
+          	<TD class="tr3 td9"><P class="p0 ft44">&nbsp;</P></TD>
+          </TR>
+          <TR>
+          	<TD class="tr6 td8"><P class="p90 ft6">\</P></TD>
+          	<TD class="tr6 td9"><P class="p0 ft50">&nbsp;</P></TD>
+          </TR>
+          <TR>
+          	<TD class="tr3 td8"><P class="p93 ft14">\</P></TD>
+          	<TD rowspan=2 class="tr7 td9"><P class="p94 ft5">jekyll _______ work1</P></TD>
+          </TR>
+          <TR>
+          	<TD class="tr3 td8"><P class="p95 ft14"><NOBR>-------</NOBR></P></TD>
+          </TR>
+          <TR>
+          	<TD class="tr6 td8"><P class="p0 ft50">&nbsp;</P></TD>
+          	<TD class="tr6 td9"><P class="p96 ft6">\___ .git</P></TD>
+          </TR>
+          <TR>
+          	<TD class="tr3 td8"><P class="p0 ft44">&nbsp;</P></TD>
+          	<TD class="tr3 td9"><P class="p91 ft14">\</P></TD>
+          </TR>
+          <TR>
+          	<TD class="tr8 td8"><P class="p0 ft50">&nbsp;</P></TD>
+          	<TD class="tr8 td9"><P class="p97 ft6">\___ *.java and other files</P></TD>
+          </TR>
+          </TABLE>
+          <P class="p98 ft6">You have a completely new 2<SPAN class="ft41">nd </SPAN>repository, created from the first. In this 2<SPAN class="ft41">nd </SPAN>working directory, edit ButtonFrame.java, and add a comment at the top: “Added a comment for this jekyll repo version only” and commit. Now do a git status. What is the history of the file?</P>
+          <P class="p99 ft6">OK, so why did we create 2 repositories for essentially the same stuff? Short answer: to prove a point for this lab. In reality I cannot think of a good use case for creating a 2<SPAN class="ft41">nd </SPAN>local repo for the same project (if you need to manage multiple codelines you will use branches, see above). For now, we will treat our 2<SPAN class="ft41">nd </SPAN>repo as the local working repo (top/jekyll/work1) and the 1<SPAN class="ft41">st </SPAN>repo (top/work1) as a remote repo. </P>
+
+            </block>
 			</section>
 			<section id="content">
-				<h2>Checking in a remote repository (git remote)</h2>
+				
+				<table width="100%"><th align="left"><h2>Checking in a remote repository (git remote)</th>
+				<th align="right">
+				  <button id="b1_remote"    onclick=show('id_remote','b1_remote','b2_remote') > ?</button>			
+                  <button id="b2_remote" style="display:none;" onClick=hide('id_remote','b1_remote','b2_remote')   >^</button>
+				</th>
+			</table>
 				<ol>
 					<li>Let’s pretend top/work1 on your local machine is a remote “shared” repo, and top/jekyll/work1 is where you, as a developer, are doing your coding. Do the following: 
 					<b><br>$ cd top/jekyll/work1  <br />$ git remote –v</b></li>
@@ -42,52 +129,141 @@
                         <br/>$git remote –v   </b></li>
                    
 				</ol>
+			<block id="id_remote">
+					   
+               <P class="p100 ft5">So far you’re working by yourself in a local directory with a local repository. When working with a team or in a community, you need to be able to share your work, and to use contributions shared by others. Now again, going back to our original discussion, you could just use a dropbox folder or email or whatever, but instead why not just use git? Repositories can exist “out there on the Internet” and you may work with any number of them. You can even expose repos on your laptop to others, though it is more common to create repositories in <NOBR>well-known</NOBR> places under <NOBR>well-known</NOBR> labels for <NOBR>(well-known)</NOBR> people. In this sense there are “servers”, but I put that in quotes because there is very little that is <NOBR>server-ish</NOBR> about it. It is really a machine that allows remote access to one or more repositories. The <NOBR>server-side</NOBR> part is in managing access and permissions and multiple repos in convenient ways, and there are a variety of freely available tools (I like gitolite) for doing this. This is really what GitHub is, and we’ll get to that in a moment.</P>
+              <P class="p101 ft6">But for now, let’s pretend top/work1 on your local machine is a remote “shared” repo, and top/jekyll/work1 is where you, as a developer, are doing your coding. </P>
+              <P class="p102 ft6">Look at the results of the remote <NOBR>–v</NOBR> command. Actually we are not pretending top/work1 is a remote repo, by virtue of <SPAN class="ft25">cloning </SPAN>another repo git automatically added it as a remote repo named <SPAN class="ft25">origin</SPAN>. That seems pretty crazy, so let’s do it again: create a directory top/hyde, and clone work1 again:</P>
+              <P class="p24 ft6">With the creation of top/work1 we have 3 repos, which should be organized like this:</P>
+              <P class="p86 ft6">_____ work1____</P>
+            <TABLE cellpadding=0 cellspacing=0 class="t3">
+            <TR>
+            	<TD class="tr3 td10"><P class="p105 ft14">/</P></TD>
+            	<TD class="tr3 td11"><P class="p0 ft5">\___ git stuff</P></TD>
+            </TR>
+            <TR>
+            	<TD class="tr6 td10"><P class="p106 ft5">Top ___/</P></TD>
+            	<TD class="tr6 td11"><P class="p0 ft50">&nbsp;</P></TD>
+            </TR>
+            <TR>
+            	<TD class="tr6 td10"><P class="p105 ft6">\</P></TD>
+            	<TD class="tr6 td11"><P class="p0 ft50">&nbsp;</P></TD>
+            </TR>
+            </TABLE>
+            <P class="p107 ft14">|\</P>
+            <P class="p107 ft14">| \____ jekyll________ work1</P>
+            <TABLE cellpadding=0 cellspacing=0 class="t4">
+            <TR>
+            	<TD class="tr3 td12"><P class="p0 ft14">|</P></TD>
+            	<TD class="tr3 td13"><P class="p96 ft5">\___ .git</P></TD>
+            </TR>
+            <TR>
+            	<TD class="tr3 td12"><P class="p0 ft14">|</P></TD>
+            	<TD class="tr3 td13"><P class="p91 ft14">\</P></TD>
+            </TR>
+            <TR>
+            	<TD class="tr3 td12"><P class="p0 ft14">\</P></TD>
+            	<TD class="tr3 td13"><P class="p97 ft14">\___ *.java and other files</P></TD>
+            </TR>
+            <TR>
+            	<TD class="tr8 td12"><P class="p108 ft5">\_____ hyde _______ work1</P></TD>
+            	<TD rowspan=2 class="tr7 td13"><P class="p96 ft5">\___ .git</P></TD>
+            </TR>
+            <TR>
+            	<TD class="tr9 td12"><P class="p0 ft52">&nbsp;</P></TD>
+            </TR>
+            <TR>
+            	<TD class="tr6 td12"><P class="p0 ft50">&nbsp;</P></TD>
+            	<TD class="tr6 td13"><P class="p91 ft6">\</P></TD>
+            </TR>
+            <TR>
+            	<TD class="tr10 td12"><P class="p0 ft50">&nbsp;</P></TD>
+            	<TD class="tr10 td13"><P class="p97 ft6">\___ *.java and other files</P></TD>
+            </TR>
+            </TABLE>
+            <P class="p109 ft4">Note the git remote <NOBR>–v</NOBR> command will give you a verbose listing of the remote repository branches your repo knows about, and under what alias (origin is the default). In terms you already know from above, when you cloned work1 in each of jekyll and hyde, you not only got a copy of the files, you also got 2 branches (pointers) – the <SPAN class="ft2">master </SPAN>you are used to seeing from before, and a <SPAN class="ft2">remote branch </SPAN>named <SPAN class="ft2">origin/master</SPAN>. Originally both branches point to the same commit node (yes, when you clone you also get the entire metadata history from the original repo). But, when you start making edits locally and committing changes, you are only doing it against master.</P>
+            
+              
+			</block>
 			</section>
 		 
 			<section id="content">
-				<h2>Pushing repo contents (git push)</h2>
+				
+				<table width="100%"><th align="left"><h2>Pushing repo contents (git push)</th>
+				<th align="right">
+				  <button id="b1_push"    onclick=show('id_push','b1_push','b2_push') > ?</button>			
+                  <button id="b2_push" style="display:none;" onClick=hide('id_push','b1_push','b2_push')   >^</button>
+				</th>
+			</table>
 				<ol>
 					<li>Make changes in the repsitry hyde/wrk1 as fllws:<b>
-                        <br/>$ git status  # yu shuld be in hyde/wrk1, verify yu are wrking n master
+                        <br/>$ git status  # you should be in hyde/wrk1, verify you are working on master
                         <br/>$ &ltedit ButtnFrame.java&gt 
                         <br/>$ &ltadd a text file named f.txt with 1 line f text in it&gt 
                         <br/>$ git add &ltbth files&gt 
                         <br/>$ git cmmit &ltbth files&gt 
-                        <br/>$ git status </b><br/>Note where it says “Your branch is ahead of ‘origin/master’ by 1 commit.” Funky stuff. Git knows you were cloned and maintaining a remote reference, so it is informing you of how your local work is getting out in front of the remote branch. So, how do you synch them up? If these were 2 local branches on the same repo, you would just do a fast-forward merge. But since we have 2 different repos, we have to tell git to push our stuff to the remote repo:</li>
+                        <br/>$ git status </b>
+						</li>
                     <li>Push the code to remote repository<br/><b>  $ git push origin master    </b></li>               				
 				</ol>
+				
+				<block id="id_push">
+					   
+               <P class="p112 ft6">You should see something a bit different in the status:</P>
+              <P class="p30 ft18"><SPAN class="ft18">#</SPAN><SPAN class="ft23">On branch master</SPAN></P>
+              <P class="p30 ft26"><SPAN class="ft26">#</SPAN><SPAN class="ft29">Your branch is ahead of 'origin/master' by 1 commit.</SPAN></P>
+              <P class="p113 ft18">nothing to commit (working directory clean)</P>
+              <P class="p114 ft14">Note where it says “Your branch is ahead of ‘origin/master’ by 1 commit.” Funky stuff. Git knows you were cloned and maintaining a remote reference, so it is informing you of how your local work is getting out in front of the remote branch. So, how do you synch them up? If these were 2 local branches on the same repo, you would just do a <NOBR>fast-forward</NOBR> merge. But since we have 2 different repos, we have to tell git to <SPAN class="ft38">push </SPAN>our stuff to the remote repo:</P>
+
+              
+			</block>
 			</section>
 			<section id="content">
-				<h2>Pulling repo contents (git pull)</h2>
+			
+				<table width="100%"><th align="left"><h2>Pulling repo contents (git pull)</th>
+				<th align="right">
+				  <button id="b1_pull"    onclick=show('id_pull','b1_pull','b2_pull') > ?</button>			
+                  <button id="b2_pull" style="display:none;" onClick=hide('id_pull','b1_pull','b2_pull')   >^</button>
+				</th>
+			</table>
 				<ol>
 					<li>Pull the code from remote repository<b>
                         <br/>$ cd top/jekyll/work1 
 						<br/>$ git pull  </b></li>               					   		
 				</ol>
+			<block id="id_pull">
+					   
+               <P class="p116 ft6">If you have problems with the push then you may have not converted top/work1 properly, or somehow got out of synch. Try doing a “git pull” and then trying the push again. So what is git pull?</P>
+              <P class="p116 ft6">And voila! Jekyll gets the changes Hyde pushed to the (bare) repository. In the typical <NOBR>pseudo-centralized</NOBR> workflow, the shared remote bare repository acts as the server, and each team member maintains a local working git repository and periodically synchs it via push/pull. There is also a fetch instead of a pull, with the basic difference being fetch grabs the updates but doesn’t merge.</P>
+              <P class="p116 ft6">So you may be wondering – what is the deal with this “bare” repository business. You can read this: <NOBR><SPAN class="ft53">http://www.saintsjd.com/2011/01/what-is-a-bare-git-repository/</SPAN></NOBR><SPAN class="ft53"> </SPAN>or I will try to summarize. Keep in mind always that the .git directory is keeping not only metadata but compressed binary copies of all objects. When you push into a remote repository that is not bare (has a copy of all the working files) you would be writing new stuff to that .git directory <SPAN class="ft35">but not to the working directory</SPAN>. So, the working directory would seem all out of sorts with the .git metadata. Git 1.8.2 will reject the push. There are workarounds of course. You can do a reset, create a private branch, or set a configuration property in the remote repository. But it is an unusual scenario for one to need to keep a working copy of the source files in a shared repository – too many folks can get you out of synch too quickly – so often you just create a bare repository from the start (using git init <NOBR>–bare</NOBR> &lt;directory&gt;) and push stuff to it from afar.</P>
+
+              
+			</block>
 			</section>
-				</br>
-			<submit> 
-		
-				 <b>Submit checkpoint #6:</b>  Before continuing, cd to top and make a jarfile of all 3 directories underneath and call it &ltasurite&gt.lab1-6.jar[zip]  
-				 
-		</submit>
-		</div>
+			
+			
+			<section>
+			<br>
+				<div align="center"> <b>Create Tag: </b> $git tag 'v5.0'</div>
+				<div align="center"> <b>Start with previous version: </b>$ git reset --hard 'v4.0'</div>
+		    </section>
+  			 
+  			</div>
 		<br/><br />
 		 
-		<section id="content">
-				 <table><th><h2>&lt&lt <a href="merging.html">Previous</a></th><th></th><th>  <div><h2><a href="remote_branch.html">Next</a>&gt&gt </h2> </div></th>
-				 </table>
-		</section>
-		
-	<footer>
+		<table width="100%">
+      		<th align="left"><h2>&lt&lt <a href="merging.html" >Previous</a></h2></th>
+
+      		<th align="right"><h2><a href="remote_branch.html">Next</a>&gt&gt </h2></th>
+  		 </table>
+		<footer>
 			<ul>
-				<li><a href="index.html">Home</a></li>
-				<li><a href="install.html">Lab Exercise</a></li>
-				<li><a href="CST316 Spring 2014_ CST316 Spring 2014_ PRACTICE_ Git lab.pdf">Tutorial</a></li>
-				<li><a href="">Undo</a></li>	
+				<li><a href="index.html">Home</a></li>				
+								 
 			</ul>
-			<p>Department of Software Engineering, Arizona State University.</p>
+			<p>The Software Enterprise @ ASU, copyright (c) Kevin A. Gary 2015</p>
 		</footer>
+			
 	</div>
 </body>
 </html>

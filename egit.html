@@ -6,39 +6,74 @@
     <meta name="author" content="Roopa Hiremath Chandrasekaraiah">
     <meta name="Copyright" content="Copyright 2015 Arizona State University, all rights reserved.">
 	<title>Eclipse plugin</title>
-	<link rel="stylesheet" type="text/css" href="mystyles.css">
-	<!--[if IE]>
-	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
+	<link rel="stylesheet" type="text/css" href="CSS/mystyles.css">
+	<link rel="stylesheet" type="text/css" href="CSS/gen.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script>  
+        function hide( t,b1,b2) {
+         
+        document.getElementById(t).style.display = "none";
+        document.getElementById(b2).style.display="none"
+        document.getElementById(b1).style.display="inline"
+        }
+        
+        function show( t,b1,b2) {
+        
+        document.getElementById(t).style.display = "block";
+        document.getElementById(b1).style.display="none"
+        document.getElementById(b2).style.display="inline"
+        }
+    </script>
 </head>
 <body>
 	<div id="container">
 		<header>
-			<h1>Using Eclipse Plugin for Git</h1>
-			<p class="description">Using GitHub</p>
+			<h1>Source Code Management</h1>
+			<p class="description">Using Eclipse Plugin for Git</p>
 		</header>
+				<br />
+		<span class="ft15"> 
+				<a href="createRepo.html">Create</a>&nbsp&gt&gt&nbsp					
+			  	<a href="manage_local_repo.html">Manage</a>&nbsp&gt&gt&nbsp
+				<a href="branching.html">Branch</a>&nbsp&gt&gt&nbsp
+				<a href="merging.html">Merge</a>&nbsp&gt&gt&nbsp
+				<a href="remote_repo.html">Remote Repositories</a>&nbsp&gt&gt&nbsp
+				<a href="remote_branch.html">Remote Branch</a>&nbsp&gt&gt&nbsp
+				<a href="github.html">GitHub</a>&nbsp&gt&gt&nbsp
+				<span class="ft">Eclipse Plugin&nbsp&gt&gt&nbsp </span>
+			</span>
 		<div id="wrapper">
 			<section id="content">
-				<h2>Eclipse plugin</h2>
+				 
+				<table width="100%"><th align="left"><h2>Using eclipse plugin</th>
+				<th align="right">
+				  <button id="b1_egit"    onclick=show('id_egit','b1_egit','b2_egit') > ?</button>			
+                  <button id="b2_egit" style="display:none;" onClick=hide('id_egit','b1_egit','b2_egit')   >^</button>
+				</th>
+			</table>
 				<ol>
 					<li>Add a plug in to eclipse found at <a href="http://www.eclipse.org/egit/">http://www.eclipse.org/egit</a></li>
 				</ol>
+				<block id="id_egit">
+						   
+				  <P class="p61 ft28">Eclipse has a plugin named Egit which is supposed to be in the standard bundle, but I did not have it so you may need to add it. I am a <NOBR>text-based</NOBR> person so I prefer to use the <NOBR>command-line,</NOBR> but you may like Egit’s features. Up to you.</P>
+				</block>
 			</section>
-			</div>
+			 
+  			</div>
 		<br/><br />
 		 
-		<section id="content">
-				 <table><th><h2>&lt&lt <a href="remote_repo.html">Previous</a></th><th></h2> </div></th>
-				 </table>
-		</section>
+		<table width="100%">
+      		<th align="left"><h2>&lt&lt <a href="github.html" >Previous</a></h2></th>
+
+      		 
+  		 </table>
 		<footer>
 			<ul>
-				<li><a href="index.html">Home</a></li>
-				<li><a href="install.html">Lab Exercise</a></li>
-				<li><a href="CST316 Spring 2014_ CST316 Spring 2014_ PRACTICE_ Git lab.pdf">Tutorial</a></li>
-				<li><a href="">Undo</a></li>	
+				<li><a href="index.html">Home</a></li>				
+								 
 			</ul>
-			<p>Department of Software Engineering, Arizona State University.</p>
-		</footer></div>
-</body>
+			<p>The Software Enterprise @ ASU, copyright (c) Kevin A. Gary 2015</p>
+		</footer>
+	</body>
 </html>
