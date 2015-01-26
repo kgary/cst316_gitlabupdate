@@ -46,72 +46,72 @@
 		<div id="wrapper">
 			<section id="content">
 
-				<table width="100%"><th align="left"><h2>Merge contents of a branch (git merge)</th>
+				<table width="100%"><th align="left"><h2>Merge contents of a branch (<a href="http://git-scm.com/docs/git-merge">git merge</a>)</th>
 				<th align="right">
 				  <button id="b1_merge"    onclick=show('id_merge','b1_merge','b2_merge') > ?</button>			
                   <button id="b2_merge" style="display:none;" onClick=hide('id_merge','b1_merge','b2_merge')   >^</button>
 				</th>
 			</table>
 				<ol>
-					<li>Create branch named p2 and checkout.<br /><b>$ git checkout –b p2 </b> </li>
+					<li>Create branch named p2 and checkout.<br /><b>$ <a href="http://git-scm.com/docs/git-checkout">git checkout</a> –b p2 </b> </li>
 					<li>Edit ButtonFrame.java</li>
-                    <li>Add file to git</br><b>$git add ButtonFrame.java</b></li>
-                    <li>Save the changes</br><b>$ git commit –m “extra commit 1” ButtonFrame.java </b></li>
-					<li>Add file to git on branch p1</br><b>$git add ButtonFrame.java</b></li>
-                    <li>Store the changes on branch p1 </br><b>git commit –m “extra commit 1” ButtonFrame.java  </b></li>
-                    <li>Check out master </br><b>$ git checkout master</b></li>
-                    <li>Merge p2 to master</br><b>$ git merge p2</b></li>
-                    <li>Check out master again </br><b>$ git checkout master </b></li>
-                    <li>Merge p1 to master</br><b>$ git merge p1</b></li>								
+                    <li>Add file to git</br><b>$<a href="http://git-scm.com/docs/git-add"><a href="http://git-scm.com/docs/git-add"><a href="http://git-scm.com/docs/git-add">git add</a></a></a> ButtonFrame.java</b></li>
+                    <li>Save the changes</br><b>$ <a href="http://git-scm.com/docs/git-commit">git commit</a> –m “extra commit 1” ButtonFrame.java </b></li>
+					<li>Add file to git on branch p1</br><b>$<a href="http://git-scm.com/docs/git-add"><a href="http://git-scm.com/docs/git-add"><a href="http://git-scm.com/docs/git-add">git add</a></a></a> ButtonFrame.java</b></li>
+                    <li>Store the changes on branch p1 </br><b><a href="http://git-scm.com/docs/git-commit">git commit</a> –m “extra commit 1” ButtonFrame.java  </b></li>
+                    <li>Check out master </br><b>$ <a href="http://git-scm.com/docs/git-checkout">git checkout</a> master</b></li>
+                    <li>Merge p2 to master</br><b>$ <a href="http://git-scm.com/docs/git-merge">git merge</a> p2</b></li>
+                    <li>Check out master again </br><b>$ <a href="http://git-scm.com/docs/git-checkout">git checkout</a> master </b></li>
+                    <li>Merge p1 to master</br><b>$ <a href="http://git-scm.com/docs/git-merge">git merge</a> p1</b></li>								
 				</ol>
 			<block id="id_merge">
 					   
               <P class="p50 ft4">You need to merge Branches that are in the same commit path (master and p2), and divergent branches (p1). Reconciling these efficiently depends on what you are doing and where you want to go.</P>
               <P class="p50 ft4">The 1<SPAN class="ft41">st </SPAN>case is easier. As master and p2 only differ by a commit, reconciling them is as simple as moving the master pointer forward:</P>
-              <P class="p50 ft4">That’s it (you can use your git show to check). In fact it doesn’t matter how many commits have been applied to p2 as long as it is not divergent from master – master can <NOBR>“fast-forward”</NOBR> to catch up with p2. But we still have the divergent branch problem with p1.</P>
+              <P class="p50 ft4">That’s it (you can use your <a href="http://git-scm.com/docs/git-show">git show</a> to check). In fact it doesn’t matter how many commits have been applied to p2 as long as it is not divergent from master – master can <NOBR>“fast-forward”</NOBR> to catch up with p2. But we still have the divergent branch problem with p1.</P>
               <P class="p50 ft4">Since these branches diverge, git cannot just <NOBR>fast-forward</NOBR> master. Instead, it has to use information from master, p1, and the common ancestor of them to do the merge.</P>
               <P class="p73 ft4"><SPAN class="ft43">How is this different that traditional SCC? </SPAN>In traditional systems it is up to the developer to determine from which point to merge, and often this is a source of the problem with bad merges (typically something gets lost). Git takes care of this by identifying that nearest ancestor and attempting the merge from there. It doesn’t always work cleanly, you may get a message like this:</P>
               <P class="p25 ft26"><NOBR>Auto-merging</NOBR> ButtonFrame.java</P>
               <P class="p25 ft26">CONFLICT (content): Merge conflict in ButtonFrame.java</P>
               <P class="p25 ft18">Automatic merge failed; fix conflicts and then commit the result.</P>
-              <P class="p50 ft4">This happens when you were editing in the same place in the file and git cannot <NOBR>auto-reconcile</NOBR> the changes. Git status will inform us: <SPAN class="ft21">$ git status</SPAN></P>
+              <P class="p50 ft4">This happens when you were editing in the same place in the file and git cannot <NOBR>auto-reconcile</NOBR> the changes. Git status will inform us: <SPAN class="ft21">$ <a href="http://git-scm.com/docs/git-status">git status</a></SPAN></P>
               <P class="p30 ft26"><SPAN class="ft26">#</SPAN><SPAN class="ft29">On branch master</SPAN></P>
               <P class="p30 ft26"><SPAN class="ft26">#</SPAN><SPAN class="ft29">Unmerged paths:</SPAN></P>
-              <P class="p30 ft26"><SPAN class="ft26">#</SPAN><SPAN class="ft30">(use "git add/rm &lt;file&gt;..." as appropriate to mark resolution)</SPAN></P>
+              <P class="p30 ft26"><SPAN class="ft26">#</SPAN><SPAN class="ft30">(use "<a href="http://git-scm.com/docs/git-add"><a href="http://git-scm.com/docs/git-add"><a href="http://git-scm.com/docs/git-add">git add</a></a></a>/rm &lt;file&gt;..." as appropriate to mark resolution)</SPAN></P>
 			  <P class="p76 ft4">So now what? Well, open up ButtonFrame.java and you will see git has inserted delimiters saying what is different between the files in question, “&lt;&lt;&lt;&lt;&lt;&lt; HEAD” and “&gt;&gt;&gt;&gt;&gt;&gt;&gt; p1”. Interesting how it uses HEAD and not master eh? At this point there is no rocket science, you have to manually decide for each conflict across your conflicting files. Choose one, choose the other, combine, delete – it is up to you. Manually edit ButtonFrame.java to merge your changes. Add and commit on master as usual. Note that when you are done you will have a new commit node pointed to by master, distinct from both p1 and p2 (but also descendant of both).</P>
  
 			</block>
 			</section>
 			 
 		 	<section id="content">
-			<table width="100%"><th align="left"><h2>Apply all the changes from a branch (git rebase)</th>
+			<table width="100%"><th align="left"><h2>Apply all the changes from a branch (<a href="http://git-scm.com/docs/git-rebase">git rebase</a>)</th>
 				<th align="right">
 				  <button id="b1_rebase"    onclick=show('id_rebase','b1_rebase','b2_rebase') > ?</button>			
                   <button id="b2_rebase" style="display:none;" onClick=hide('id_rebase','b1_rebase','b2_rebase')   >^</button>
 				</th>
 			</table>
 				<ol>
-					<li>Checkout branch p1.<br /><b>$ git checkout p1 </b> </li>
+					<li>Checkout branch p1.<br /><b>$ <a href="http://git-scm.com/docs/git-checkout">git checkout</a> p1 </b> </li>
 					<li>Edit ButtonFrame.java</li>
-                    <li>Add file to git</br><b>$git add ButtonFrame.java</b></li>
-                    <li>Save the changes</br><b>$ git commit –m “extra commit 1” ButtonFrame.java </b></li>
+                    <li>Add file to git</br><b>$<a href="http://git-scm.com/docs/git-add"><a href="http://git-scm.com/docs/git-add"><a href="http://git-scm.com/docs/git-add">git add</a></a></a> ButtonFrame.java</b></li>
+                    <li>Save the changes</br><b>$ <a href="http://git-scm.com/docs/git-commit">git commit</a> –m “extra commit 1” ButtonFrame.java </b></li>
 					<li>Edit ButtonFrame.java</li>
-					<li>Add file to git</br><b>$git add ButtonFrame.java</b></li>
-                    <li>Save the changes</br><b>$ git commit –m “extra commit 2” ButtonFrame.java </b></li>
-					<li>Rebase master</br><b>$ git rebase master</b></li>
-                    <li>Check out master </br><b>$ git checkout master</b></li>
-                    <li>Merge p1 to master</br><b>$ git merge p1</b></li>								
+					<li>Add file to git</br><b>$<a href="http://git-scm.com/docs/git-add"><a href="http://git-scm.com/docs/git-add"><a href="http://git-scm.com/docs/git-add">git add</a></a></a> ButtonFrame.java</b></li>
+                    <li>Save the changes</br><b>$ <a href="http://git-scm.com/docs/git-commit">git commit</a> –m “extra commit 2” ButtonFrame.java </b></li>
+					<li>Rebase master</br><b>$ <a href="http://git-scm.com/docs/git-rebase">git rebase</a> master</b></li>
+                    <li>Check out master </br><b>$ <a href="http://git-scm.com/docs/git-checkout">git checkout</a> master</b></li>
+                    <li>Merge p1 to master</br><b>$ <a href="http://git-scm.com/docs/git-merge">git merge</a> p1</b></li>								
 				</ol>
 				<block id="id_rebase">
 					   
                 <P class="p21 ft5">We just added 2 new commits to p1, and we are divergent again. Yes we can go to master and merge. Or another option is to <SPAN class="ft35">rebase</SPAN></P>
                 <P class="p80 ft6">– to apply all the changes that were applied by the commits on master to p1 (or the current branch). In essence, you are saying you are accepting the changes made <SPAN class="ft25">en masse</SPAN>.</P>
-                <P class="p25 ft26">$ git rebase master</P>
-                <P class="p81 ft19">$ git checkout master $ git merge p1</P>
+                <P class="p25 ft26">$ <a href="http://git-scm.com/docs/git-rebase">git rebase</a> master</P>
+                <P class="p81 ft19">$ <a href="http://git-scm.com/docs/git-checkout">git checkout</a> master $ <a href="http://git-scm.com/docs/git-merge">git merge</a> p1</P>
                 <P class="p82 ft6">What git does is linearize the set of changes (commits) made to the divergent paths of master and p1. It is considered better practice to do it in the <NOBR>non-master</NOBR> branch and then <NOBR>fast-forward</NOBR> master if it is successful, just in case there are problems. Now why would you rebase instead of merge? Basically to linearize the history. With rebase, since commits are basically replayed, it “straightens” the codeline’s history, essentially obscuring the fact that a branch ever happened. This helps if you are branching to experiment with something or support a <NOBR>short-term</NOBR> spike, and do not want to cloud the codeline’s history.</P>
                 <P class="p13 ft5"><SPAN class="ft47">How is this different that traditional SCC? </SPAN>If you’ve ever seen a tag history for a highly branched open source project you would understand why this is so helpful! Over time a fair amount of crud can build up (rapidly) in your traditional SCC repository. Lots of branches get created, some are cleanly merged and removed, others live a long and illustrious life, and others kinda just hang around for reasons unknown, but everybody is too scared to remove it. Each legacy branch represents another decision for change management per change, and obscures the history of the codeline. <SPAN class="ft35">Rebasing </SPAN>is a unique concept that I highly encourage for <NOBR>short-term</NOBR> concurrent work – use a branch to do your stuff, but it isn’t always necessary to keep that branch history around. Basically we want to conform to the best practice in your notes – “branch only on incompatible policy” – yet sometimes we do it for productivity and convenience. Rebasing allows is to have the best of both worlds.</P>
                 <P class="p3 ft25"><SPAN class="ft27">Submit checkpoint #5</SPAN>: jar/zip up your working directory (including the .git subdirectory) to a file named <NOBR>&lt;asurite&gt;.lab1-5.jar[zip]</NOBR></P>
-                <P class="p24 ft6">After creating this submission jar, you can delete all branches except the master using git branch <NOBR>–d</NOBR> &lt;name&gt;.</P>
+                <P class="p24 ft6">After creating this submission jar, you can delete all branches except the master using <a href="http://git-scm.com/docs/git-branch">git branch</a> <NOBR>–d</NOBR> &lt;name&gt;.</P>
 			</block>
 			</section>
 			
@@ -119,7 +119,7 @@
 			<section>
 			<br>
 				<div align="center"> <b>Create Tag: </b> $git tag 'v4.0'</div>
-				<div align="center"> <b>Start with previous version: </b>$ git reset --hard 'v3.0'</div>
+				<div align="center"> <b>Start with previous version: </b>$ <a href="http://git-scm.com/docs/git-reset">git reset</a> --hard 'v3.0'</div>
 		    </section>
   			 
   			</div>

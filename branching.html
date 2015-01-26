@@ -45,26 +45,26 @@
 			
   		<div id="wrapper">
   			<section id="content">
-  			 <table width="100%"><th align="left"><h2>Create a branch (git branch)</th>
+  			 <table width="100%"><th align="left"><h2>Create a branch (<a href="http://git-scm.com/docs/git-branch">git branch</a>)</th>
 				<th align="right">
 				  <button id="b1_branch"    onclick=show('id_branch','b1_branch','b2_branch') > ?</button>			
                   <button id="b2_branch" style="display:none;" onClick=hide('id_branch','b1_branch','b2_branch')   >^</button>
 				</th>
 			</table>
   				<ol>
-    					<li>Create branch named p1.<br /><b>$ git branch p1</b> </li>
-    					<li>Check the status</br><b>$git status</b></li>
-                        <li>Checkout the branch p1</br><b>$ git checkout p1</b></li>
-                        <li>Check the status</br><b>$git status</b></li>
-                        <li>Display the branch p1</br><b>$ git show p1 </b></li>
-                        <li>Display the master </br><b>$ git show master</b></li>			
+    					<li>Create branch named p1.<br /><b>$ <a href="http://git-scm.com/docs/git-branch">git branch</a> p1</b> </li>
+    					<li>Check the status</br><b>$<a href="http://git-scm.com/docs/git-status">git status</a></b></li>
+                        <li>Checkout the branch p1</br><b>$ <a href="http://git-scm.com/docs/git-checkout">git checkout</a> p1</b></li>
+                        <li>Check the status</br><b>$<a href="http://git-scm.com/docs/git-status">git status</a></b></li>
+                        <li>Display the branch p1</br><b>$ <a href="http://git-scm.com/docs/git-show">git show</a> p1 </b></li>
+                        <li>Display the master </br><b>$ <a href="http://git-scm.com/docs/git-show">git show</a> master</b></li>			
   				</ol>
 			<block id="id_branch">
 					   
                 <P class="p50 ft4">Branching and merging are critical features for any SCC system. How the system handles it, what assumptions it makes, and your understanding of the model make a big difference. Do it poorly, and everything gets screwed up and your whole team is mad at you. Do it well, and you can be incredibly productive. The way Git supports branching and merging is perhaps its signature feature.</P>
                 <P class="p50 ft4"><SPAN class="ft27">How do traditional SCC systems do it? </SPAN>Traditional SCC systems stores the deltas between its local workspace and the last changes stored (committed) to a centralized server. The number of overlapping changes can grow quickly if team members are generating new code but not synchronizing often with the central repository. This is the reason for the “check in early, check in often” mantra that has long been considered a best practice – if you don’t then there is to great a chance your changes will overlap with someone else’s, and you have to figure the mess out (merge).</P>
                 <P class="p50 ft4">Since Git stores entire copies of your files as objects together with some metadata, it is able to handle branching and merging in a more simple and elegant way. The 1<SPAN class="ft40">st </SPAN>thing to understand is that Git stores a metadata object called a <SPAN class="ft2">commit object </SPAN>each time someone commits to a repo. As more commits are done over time, these commit objects are chained together in a <NOBR>linked-list</NOBR> like structure (actually it is more a binary tree, with one child being a pointer to the previous commit and the other child being a pointer to the snapshot in time of the repo). A branch in git is merely a named pointer to a commit node in the tree. When you created a repo, git by default created a pointer named <SPAN class="ft2">master</SPAN>. But you can create many such pointers.</P>
-                <P class="p50 ft4">The git branch p1 command creates a new branch (pointer) named p1. But when you check the status you see it tells you are still on branch master (meaning, “you are pointing at the repository at its state after the last commit”). Doing a git checkout p1 says “I want to point at the repository state using pointer p1”. When you check status this time you will see you are using branch (pointer) p1. Given that for the moment <SPAN class="ft25">master </SPAN>and <SPAN class="ft25">p1 </SPAN>both point to the same commit, the last 2 show commands should show you the same exact thing (in particular, look at the 1<SPAN class="ft41">st </SPAN>line of output for each). Git keeps track of which pointer it is using via a special pointer named HEAD (yes, a pointer to a pointer).</P>
+                <P class="p50 ft4">The <a href="http://git-scm.com/docs/git-branch">git branch</a> p1 command creates a new branch (pointer) named p1. But when you check the status you see it tells you are still on branch master (meaning, “you are pointing at the repository at its state after the last commit”). Doing a <a href="http://git-scm.com/docs/git-checkout">git checkout</a> p1 says “I want to point at the repository state using pointer p1”. When you check status this time you will see you are using branch (pointer) p1. Given that for the moment <SPAN class="ft25">master </SPAN>and <SPAN class="ft25">p1 </SPAN>both point to the same commit, the last 2 show commands should show you the same exact thing (in particular, look at the 1<SPAN class="ft41">st </SPAN>line of output for each). Git keeps track of which pointer it is using via a special pointer named HEAD (yes, a pointer to a pointer).</P>
 			
 			</block>
   			</section>
@@ -72,19 +72,19 @@
 			
   			<section id="content">
   				 
-			<table width="100%"><th align="left"><h2>Switch to branch or master (git checkout)</th>
+			<table width="100%"><th align="left"><h2>Switch to branch or master (<a href="http://git-scm.com/docs/git-checkout">git checkout</a>)</th>
 				<th align="right">
 				  <button id="b1_checkout"    onclick=show('id_checkout','b1_checkout','b2_checkout') > ?</button>			
                   <button id="b2_checkout" style="display:none;" onClick=hide('id_checkout','b1_checkout','b2_checkout')   >^</button>
 				</th>
 			</table>
   				<ol>
-      				<li>Get the branch/master copy<br/><b> $git checkout &ltbranch name&gt/ git checkout master</b>  </li>
+      				<li>Get the branch/master copy<br/><b> $<a href="http://git-scm.com/docs/git-checkout">git checkout</a> &ltbranch name&gt/ <a href="http://git-scm.com/docs/git-checkout">git checkout</a> master</b>  </li>
 					
         		</ol>
 				<block id="id_checkout">
 					   <P class="p62 ft4">OK, at this point HEAD refers to p1 which refers to the last commit. Edit the file ButtonFrame.java and make any simple change you want, and commit. You can check status and all that for p1 and it is as you expect. Now change back to master with checkout command</P>
-					   <P class="p63 ft19">$ git checkout master $ git status</P>
+					   <P class="p63 ft19">$ <a href="http://git-scm.com/docs/git-checkout">git checkout</a> master $ <a href="http://git-scm.com/docs/git-status">git status</a></P>
 					   <P class="p64 ft6">All should look well, there is no indication there is anything amiss. But look at the contents of ButtonFrame.java!</P>
                        	
 				</block>
@@ -93,23 +93,23 @@
 			
   			<section id="content">
 
-			<table width="100%"><th align="left"><h2>Check history of a branch (git show)</th>
+			<table width="100%"><th align="left"><h2>Check history of a branch (<a href="http://git-scm.com/docs/git-show">git show</a>)</th>
 				<th align="right">
 				  <button id="b1_show"    onclick=show('id_show','b1_show','b2_show') > ?</button>			
                   <button id="b2_show" style="display:none;" onClick=hide('id_show','b1_show','b2_show')   >^</button>
 				</th>
 			</table>
   				<ol>
-      				<li>Display the history of branch </br><b>$git show &ltbranch name&gt </b></br><b>$ git show master </b></li>
+      				<li>Display the history of branch </br><b>$<a href="http://git-scm.com/docs/git-show">git show</a> &ltbranch name&gt </b></br><b>$ <a href="http://git-scm.com/docs/git-show">git show</a> master </b></li>
       			</ol>
 				
 				<block id="id_show">
-				  <P class="p66 ft5">$ git show p1</P>
-				  <P class="p66 ft5">$ git show master </P>
-				  <P class="p66 ft5">$ git show HEAD</P>
-                  <P class="p66 ft5">Which of these looks different and why? HEAD points at master which points at a commit object with a given <NOBR>SHA-1</NOBR> key. P1 points to a commit object with different <NOBR>SHA-1</NOBR> key. Why? The pointer referred to by HEAD is automatically moved forward on commit. But any others are not. As we were using p1 at the time of commit (git checkout p1) the commit moved p1 forward but not master. When we switched HEAD back to master (git checkout master) we lost the change to ButtonFrame.java because we lost the commit. Effectively master is one commit behind p1, and git manages our directory and makes sure its state is returned to where master left it.</P>
+				  <P class="p66 ft5">$ <a href="http://git-scm.com/docs/git-show">git show</a> p1</P>
+				  <P class="p66 ft5">$ <a href="http://git-scm.com/docs/git-show">git show</a> master </P>
+				  <P class="p66 ft5">$ <a href="http://git-scm.com/docs/git-show">git show</a> HEAD</P>
+                  <P class="p66 ft5">Which of these looks different and why? HEAD points at master which points at a commit object with a given <NOBR>SHA-1</NOBR> key. P1 points to a commit object with different <NOBR>SHA-1</NOBR> key. Why? The pointer referred to by HEAD is automatically moved forward on commit. But any others are not. As we were using p1 at the time of commit (<a href="http://git-scm.com/docs/git-checkout">git checkout</a> p1) the commit moved p1 forward but not master. When we switched HEAD back to master (<a href="http://git-scm.com/docs/git-checkout">git checkout</a> master) we lost the change to ButtonFrame.java because we lost the commit. Effectively master is one commit behind p1, and git manages our directory and makes sure its state is returned to where master left it.</P>
                   <P class="p66 ft5">Now go into ButtonFrame.java and edit a few lines (different from those above), and commit the changes. Repeat the 3 show commands above, are they the same now? Nope, we’ve add a new commit from the spot where master was pointing, so now we have <SPAN class="ft11">divergent branches</SPAN>. Both master and p1 point to a “latest commit”, just not the same one. Let’s have more fun and add a pointer p2:</P>
-                  <P class="p68 ft42">$ git checkout <NOBR>–b</NOBR> p2 # This is just shorthand for “git branch p2” followed by “git checkout p2”</P>
+                  <P class="p68 ft42">$ <a href="http://git-scm.com/docs/git-checkout">git checkout</a> <NOBR>–b</NOBR> p2 # This is just shorthand for “<a href="http://git-scm.com/docs/git-branch">git branch</a> p2” followed by “<a href="http://git-scm.com/docs/git-checkout">git checkout</a> p2”</P>
                   <P class="p69 ft6">Edit ButtonFrame.java and make another change, save, and commit to p2. Master is one commit behind p2, but at least they are sequential. P1 is on a different sequence (commit path), but at least it shares a common ancestor commit with the other two, so perhaps there is hope. Now the question is, how do we bring them back together? (Actually the 1<SPAN class="ft41">st </SPAN>question is “do we want to bring them together?” which may be an issue for the CCB or higher authority, but we’ll assume we do want to bring them back together into one <SPAN class="ft25">codeline</SPAN>).</P>
                        	
 				</block>
@@ -117,7 +117,7 @@
 			<section>
 			<br>
 				<div align="center"> <b>Create Tag: </b> $git tag 'v3.0'</div>
-				<div align="center"> <b>Start with previous version: </b>$ git reset --hard 'v2.0'</div>
+				<div align="center"> <b>Start with previous version: </b>$ <a href="http://git-scm.com/docs/git-reset">git reset</a> --hard 'v2.0'</div>
 		    </section>
   			 
   			</div>

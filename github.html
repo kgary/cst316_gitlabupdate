@@ -78,7 +78,7 @@
                     <li>In the Add .gitignore drop-down select Java 6. Press Create repository  </li>
 				</ol>
 				<block id="id_create_repo">
-				<P class="p123 ft28">You will be taken to the main display page for your new repository. Note there is a README.md and a .gitignore file in the repository already. Click on the .gitignore, you see it conveniently adds file extensions for files you do not want to put in source class="p124 ft6">control. Over time you will want to add other stuff (like Eclipse’s .project) as these files live in your working space but are not intended for source control. Otherwise you will get a lot of messages in your git status about having files you haven’t added to the repository yet, and it gets quite annoying. It is even more annoying if they are added by a teammate and then you end up with them when you pull – you don’t want someone else’s .project file, it will have that person’s paths in it!</P>
+				<P class="p123 ft28">You will be taken to the main display page for your new repository. Note there is a README.md and a .gitignore file in the repository already. Click on the .gitignore, you see it conveniently adds file extensions for files you do not want to put in source class="p124 ft6">control. Over time you will want to add other stuff (like Eclipse’s .project) as these files live in your working space but are not intended for source control. Otherwise you will get a lot of messages in your <a href="http://git-scm.com/docs/git-status">git status</a> about having files you haven’t added to the repository yet, and it gets quite annoying. It is even more annoying if they are added by a teammate and then you end up with them when you pull – you don’t want someone else’s .project file, it will have that person’s paths in it!</P>
                 <P class="p15 ft6">Return to the main display page and get familiar with some of the visual features – you can browse files, commits, branches, etc. One thing you can do as well is clone the repository, see the URL near <NOBR>center-top</NOBR> that looks like <SPAN class="ft57">https://github.com/&lt;username&gt;/lab1git.git</SPAN>.</P>
                 
 			</block>
@@ -92,21 +92,21 @@
 				</th>
 			</table>
 				<ol>
-					<li>Execute the below command<b><br>$ git clone <a href="https://github.com/&ltusername&gt/lab1git.git"> https://github.com/&ltusername&gt/lab1git.git </a></b></li>
+					<li>Execute the below command<b><br>$ <a href="http://git-scm.com/docs/git-clone">git clone</a> <a href="https://github.com/&ltusername&gt/lab1git.git"> https://github.com/&ltusername&gt/lab1git.git </a></b></li>
 					<li>Edit the code say   README.md and add a line<b>
-  					  <br>$ git status 
-                      <br>$ git remote –v # Take a look at the output here, instead of  we have https:// 
-                      <br>$ git add README.md 
-                      <br>$ git commit –m “1st change on GitHub” README.md 
-                      <br>$ git status 
-                      <br>$ git push origin master	</b>
+  					  <br>$ <a href="http://git-scm.com/docs/git-status">git status</a> 
+                      <br>$ <a href="http://git-scm.com/docs/git-remote">git remote</a> –v # Take a look at the output here, instead of  we have https:// 
+                      <br>$ <a href="http://git-scm.com/docs/git-add"><a href="http://git-scm.com/docs/git-add"><a href="http://git-scm.com/docs/git-add">git add</a></a></a> README.md 
+                      <br>$ <a href="http://git-scm.com/docs/git-commit">git commit</a> –m “1st change on GitHub” README.md 
+                      <br>$ <a href="http://git-scm.com/docs/git-status">git status</a> 
+                      <br>$ <a href="http://git-scm.com/docs/git-push">git push</a> origin master	</b>
                     </li>
 				</ol>
 				<block id="id_clone">
 
-                <P class="p34 ft6">On executing the git clone command, you get a lab1git directory with your .gitignore, README.md, and .git stuff in it. Edit the README.md and add a line. Now:</P>
+                <P class="p34 ft6">On executing the <a href="http://git-scm.com/docs/git-clone">git clone</a> command, you get a lab1git directory with your .gitignore, README.md, and .git stuff in it. Edit the README.md and add a line. Now:</P>
                 <P class="p125 ft6">When pushing the changed to remote repository ,you will be prompted for the username and password you used when you signed up a minute ago. Because you are using https, it will ask you for credentials each time you push/pull. If you go back to your browser window you will see in a second that README.md has been updated out on GitHub. Whoop Whoop! You will also see that there have been 2 commits, and that you can go back and browse the code after each commit.</P>
-                <P class="p126 ft4">Note as well the output of git remote <NOBR>–v.</NOBR> Since we are using a true remote repository this time we need a <NOBR>network-enabled</NOBR> protocol. In reality git can support a number of protocols, including <SPAN class="ft3"></SPAN>, https://, ssh:// and git:// out of the box. Your team is welcome to setup ssh (http://goo.gl/WVo8R), which can help with the annoying credentials issue, but https should be sufficient for our use.</P>
+                <P class="p126 ft4">Note as well the output of <a href="http://git-scm.com/docs/git-remote">git remote</a> <NOBR>–v.</NOBR> Since we are using a true remote repository this time we need a <NOBR>network-enabled</NOBR> protocol. In reality git can support a number of protocols, including <SPAN class="ft3"></SPAN>, https://, ssh:// and git:// out of the box. Your team is welcome to setup ssh (http://goo.gl/WVo8R), which can help with the annoying credentials issue, but https should be sufficient for our use.</P>
 
 			</block>
 			</section>
@@ -120,10 +120,10 @@
 			</table>
 				<ol>
 					<li>Execute the below commands to branch remotely<b>
-  				      <br>$ git checkout –b testbranch 
+  				      <br>$ <a href="http://git-scm.com/docs/git-checkout">git checkout</a> –b testbranch 
                       <br>$ Edit README.md and add another line
-                      <br>$ git commit –a 
-                      <br>$ git push origin testbranch</b>
+                      <br>$ <a href="http://git-scm.com/docs/git-commit">git commit</a> –a 
+                      <br>$ <a href="http://git-scm.com/docs/git-push">git push</a> origin testbranch</b>
 					</li>
 				</ol>	
 			<block id="id_branch">
