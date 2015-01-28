@@ -61,24 +61,27 @@
 			
 			</section>
 			<section id="content">
-			<table width="100%"><th align="left"><h2>Add contents to git repository  (<a href="http://git-scm.com/docs/git-add"><a href="http://git-scm.com/docs/git-add">git add</a></a>)</th>
+			<table width="100%"><th align="left"><h2>Add contents to git repository  (<a href="http://git-scm.com/docs/git-add">git add</a>)</th>
 			<th align="right">
 				  <button id="b1" style="display:none;"   onclick=show('am','b1','b2') > ?</button>			
                   <button id="b2" style="display:none;" onClick=hide('am','b1','b2')   >^</button>
 			</th></table>
 				<ol>
-    				<li>Execute the commands to add contents to the repository</br><b>$ <a href="http://git-scm.com/docs/git-add"><a href="http://git-scm.com/docs/git-add">git add</a></a> </b>&ltthe rest of the stuff&gt  </li>
+    				<li>Execute the commands to add contents to the repository<br/>
+                        <b>$ <a href="http://git-scm.com/docs/git-add">git add</a> *.java </b><br/>
+                        <b>$ <a href="http://git-scm.com/docs/git-add">git add</a></b> 
+                        &ltthe rest of the stuff&gt  </li>
     			</ol>
 			</section>
 			<section id="content">
-				<table width="100%"><th align="left"><h2>Check repo status  (<a href="http://git-scm.com/docs/git-status"><a href="http://git-scm.com/docs/git-status">git status</a></a>)</th>
+				<table width="100%"><th align="left"><h2>Check repo status  (<a href="http://git-scm.com/docs/git-status">git status</a>)</th>
 				<th align="right">
 				  <button id="b1_status"  onclick=show('id_status','b1_status','b2_status') > ?</button>			
                   <button id="b2_status" style="display:none;" onClick=hide('id_status','b1_status','b2_status')   >^</button>
 				</th></table>
 
 				<ol>
-    				<li>Verify the status of the Git repository with the following command</br><b>$ <a href="http://git-scm.com/docs/git-status">git status</a></b></li>
+    				<li>Git didn’t tell you anything when you did the add. So, do we have stuff in the repo? Let’s ask git: <br/>Verify the status of the Git repository with the following command<br/><b>$ <a href="http://git-scm.com/docs/git-status">git status</a></b></li>
     			</ol>
 				<block id="id_status">
 			 		<P class="p29 ft6">A whole bunch of stuff comes back with the header:</P>
@@ -92,7 +95,7 @@
 				</block>	
 			</section>
 			<section id="content">
-			<table width="100%"><th align="left"><h2>Commit repo contents  (<a href="http://git-scm.com/docs/git-commit"><a href="http://git-scm.com/docs/git-commit">git commit</a></a>)</th>
+                <table width="100%"><th align="left"><h2>Commit repo contents  (<a href="http://git-scm.com/docs/git-commit">git commit</a>)</h2></th>
 				<th align="right">
 				  <button id="b1_commit"  onclick=show('id_commit','b1_commit','b2_commit') > ?</button>			
                   <button id="b2_commit" style="display:none;" onClick=hide('id_commit','b1_commit','b2_commit')   >^</button>
@@ -102,11 +105,21 @@
     				<li>Store the changes to Git repository with the following command</br><b>$ <a href="http://git-scm.com/docs/git-commit">git commit</a> –m “Initial commit of my stuff” . </b></li>
     			</ol>
 				<block id="id_commit">
-					   <P class="p34 ft6">You should get a message back saying</P>
+					   <P class="p34 ft6">You should get a message back saying something like</P>
                         <P class="p25 ft18">[master <NOBR>(root-commit)</NOBR> 9c8baf6] Initial commit of test source 31 files changed, 4782 insertions(+), 0 <NOBR>deletions(-)</NOBR></P>
                         <P class="p25 ft18">create mode …</P>
 				</block>
-				
+            </section>
+			<section id="content">
+                <table width="100%"><th align="left"><h2>Wrap-up: Check your status now</h2></th>
+                    <th align="right">
+                    </th></table>
+                <ol>
+                    <li>Check your status again: </li>
+                    <br/><b>$ <a href="http://git-scm.com/docs/git-status">git status</a></b>
+                    <br/>and you should see your previously staged files have been committed to your repo<br/><br/>
+                    OK great! You have initialized a new repo, added (staged) some files and directories to it, and then committed those changes to make them permanent (but undoable, as we will see). Now what happens when you need to change a source file? Continue to find out!
+                </ol>
 				
 			</section>
 			<section>
