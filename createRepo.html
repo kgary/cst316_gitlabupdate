@@ -30,13 +30,14 @@
 	<div id="container">
 		<header>
 			<h1>Source Code Management</h1>
-			<p class="description">Creating Local Git Repository</p>
+			<p class="description">The Software Enterprise Git tutorial</p>
 		</header>
 		<br />
 		<span class="ft15"> 	
 			  	<span class="ft">
 				 Create &nbsp&gt&gt&nbsp </span>
 				<a href="manage_local_repo.html">Manage</a>&nbsp&gt&gt&nbsp
+                <a href="checkpoint1.html">Checkpoint</a>&nbsp&gt&gt&nbsp
 				<a href="branching.html">Branch</a>&nbsp&gt&gt&nbsp
 				<a href="merging.html">Merge</a>&nbsp&gt&gt&nbsp
 				<a href="remote_repo.html"> Remote Repositories</a>&nbsp&gt&gt&nbsp
@@ -45,33 +46,43 @@
 				<a href="egit.html">Eclipse Plugin</a>
 			</span>
 		<div id="wrapper">
+            <h1>Create a Local Repository</h1>
 			<section id="content">
-				<table width="100%"><th align="left"><h2>Initialize git repository (<a href="http://git-scm.com/docs/git-status"><a href="http://git-scm.com/docs/git-init">git init</a></a>)</th>
+			<table width="100%"><th align="left"><h2>Initialize git repository (<a href="http://git-scm.com/docs/git-init">git init</a>)</th>
+ 
 				<th align="right">
-				  <button id="b1" style="display:none;"   onclick=show('am','b1','b2') > ?</button>			
-                  <button id="b2" style="display:none;" onClick=hide('am','b1','b2')   >^</button>
+				  <button id="b1_init"  onclick=show('id_init','b1_init','b2_init') > ?</button>			
+                  <button id="b2_init" style="display:none;" onClick=hide('id_init','b1_init','b2_init')   >^</button>
 				</th></table>
 				
 				<ol>
 					<li>Download files from  <a href="resources/labgit-master.zip" target="_blank"    >here</a> . In a clean directory named “work”, unjar the contents. You will see it is a simple source tree with a few other things thrown in. </li>
-					<li>At the command line, in the directory in which you unjarred the given file execute the below command to initialize repository</br>
+					<li>At the command line, in the directory in which you unjarred the given file, execute the below command to initialize repository</br>
 					<b>$ <a href="http://git-scm.com/docs/git-init">git init</a></b></li>
 					<li>Check out the contents of this hidden directory:</br><b>$ ls –la .git</b></li>
 				</ol>
-			
+			<block id="id_init">
+			 		<P class="p29 ft6">This command creates an empty Git repository - basically a .git directory with subdirectories for objects, refs/heads, refs/tags, and template files. An initial HEAD file that references the HEAD of the master branch is also created.</p>
+					<P class="p29 ft6">If you list out the files in .git, you would be able to see the files :COMMIT_EDITMSG, config, description, HEAD, hooks, index, info, logs, objects, packed-refs, refs.</P>
+                    
+				</block>	
 			</section>
 			<section id="content">
 			<table width="100%"><th align="left"><h2>Add contents to git repository  (<a href="http://git-scm.com/docs/git-add">git add</a>)</th>
-			<th align="right">
-				  <button id="b1" style="display:none;"   onclick=show('am','b1','b2') > ?</button>			
-                  <button id="b2" style="display:none;" onClick=hide('am','b1','b2')   >^</button>
-			</th></table>
+				<th align="right">
+				  <button id="b1_add"  onclick=show('id_add','b1_add','b2_add') > ?</button>			
+                  <button id="b2_add" style="display:none;" onClick=hide('id_add','b1_add','b2_add')   >^</button>
+				</th></table>
 				<ol>
     				<li>Execute the commands to add contents to the repository<br/>
                         <b>$ <a href="http://git-scm.com/docs/git-add">git add</a> *.java </b><br/>
                         <b>$ <a href="http://git-scm.com/docs/git-add">git add</a></b> 
                         &ltthe rest of the stuff&gt  </li>
     			</ol>
+				<block id="id_add">
+			 		<P class="p29 ft6"> This command updates the index using the current content found in the working tree, to prepare the content staged for the next commit. It typically adds the current content of existing paths as a whole, but with some options it can also be used to add content with only part of the changes made to the working tree files applied, or remove paths that do not exist in the working tree anymore.</p>
+					<P class="p29 ft6"> On executing "init add &ltfilename&gt" command we have the file ready to be committed.</p>
+				</block>	
 			</section>
 			<section id="content">
 				<table width="100%"><th align="left"><h2>Check repo status  (<a href="http://git-scm.com/docs/git-status">git status</a>)</th>
@@ -108,6 +119,7 @@
 					   <P class="p34 ft6">You should get a message back saying something like</P>
                         <P class="p25 ft18">[master <NOBR>(root-commit)</NOBR> 9c8baf6] Initial commit of test source 31 files changed, 4782 insertions(+), 0 <NOBR>deletions(-)</NOBR></P>
                         <P class="p25 ft18">create mode …</P>
+                        <P class="p34 ft6">Followed by a bunch of the create mode lines, one per each file committed. Now do a git status again, what do you see? Do a “du –s –h .git”, what do you get? Do a “du –s –h .” what do you get? Note how the .git directory is smaller than the rest of the working directory yet it has an entire copy of your stuff plus some metadata. Git does some compression when storing objects to save space. (Note: du -s -h shows you the amount of disk space you are using under a directory. You can get this information other ways as well.)</P>
 				</block>
             </section>
 			<section id="content">
@@ -133,13 +145,8 @@
 		</submit-->
 		</div>
 		<br/><br />
-		 
-		 
   		<table width="100%"><th align="left"><h2>&lt&lt <a href="install.html">Previous</a></th> <th align="right">   <h2><a href="manage_local_repo.html">Next</a>&gt&gt </h2>  </th>
   		 </table>
-		 
-		
-		
 		<footer>
 			<ul>
 				<li><a href="index.html">Home</a></li>				

@@ -29,12 +29,13 @@
   	<div id="container">
   		<header>
   			<h1>Source Code Management</h1>
-  			<p class="description">Branching in Git 	</p>
+  			<p class="description">The Software Enterprise Git tutorial</p>
   		</header>
 		<br />
 		<span class="ft15"> 
 				<a href="createRepo.html">Create</a>&nbsp&gt&gt&nbsp					
 				<a href="manage_local_repo.html">Manage</a>&nbsp&gt&gt&nbsp
+                <a href="checkpoint1.html">Checkpoint</a>&nbsp&gt&gt&nbsp
 				<span class="ft">Branch &nbsp&gt&gt&nbsp </span>
 			 	<a href="merging.html">Merge</a>&nbsp&gt&gt&nbsp
 				<a href="remote_repo.html"> Remote Repositories</a>&nbsp&gt&gt&nbsp
@@ -44,6 +45,7 @@
 			</span>
 			
   		<div id="wrapper">
+            <h1>Branching in Git</h1>
   			<section id="content">
   			 <table width="100%"><th align="left"><h2>Create a branch (<a href="http://git-scm.com/docs/git-branch">git branch</a>)</th>
 				<th align="right">
@@ -78,14 +80,13 @@
                   <button id="b2_checkout" style="display:none;" onClick=hide('id_checkout','b1_checkout','b2_checkout')   >^</button>
 				</th>
 			</table>
+                <P class="p62 ft4">OK, at this point HEAD refers to p1 which refers to the last commit. Edit the file ButtonFrame.java and make any simple change you want, and commit. You can check status and all that for p1 and it is as you expect. Now change back to master with checkout command</P>
   				<ol>
-      				<li>Get the branch/master copy<br/><b> $<a href="http://git-scm.com/docs/git-checkout">git checkout</a> &ltbranch name&gt/ <a href="http://git-scm.com/docs/git-checkout">git checkout</a> master</b>  </li>
-					
+      				<li>Get the branch/master copy<br/><b>$ <a href="http://git-scm.com/docs/git-checkout">git checkout</a> master</b>  </li>
+					<li>Check your status on master<br/><b>$ <a href="http://git-scm.com/docs/git-status">git status</a></b></li>
         		</ol>
 				<block id="id_checkout">
-					   <P class="p62 ft4">OK, at this point HEAD refers to p1 which refers to the last commit. Edit the file ButtonFrame.java and make any simple change you want, and commit. You can check status and all that for p1 and it is as you expect. Now change back to master with checkout command</P>
-					   <P class="p63 ft19">$ <a href="http://git-scm.com/docs/git-checkout">git checkout</a> master $ <a href="http://git-scm.com/docs/git-status">git status</a></P>
-					   <P class="p64 ft6">All should look well, there is no indication there is anything amiss. But look at the contents of ButtonFrame.java!</P>
+					   <P class="p64 ft6">All should look well, there is no indication there is anything amiss. But look at the contents of ButtonFrame.java! Does it have your previous edit?</P>
                        	
 				</block>
   			</section>
@@ -124,7 +125,7 @@
 		<br/><br />
 		 
 		<table width="100%">
-      		<th align="left"><h2>&lt&lt <a href="manage_local_repo.html" >Previous</a></h2></th>
+      		<th align="left"><h2>&lt&lt <a href="checkpoint1.html" >Previous</a></h2></th>
 
       		<th align="right"><h2><a href="merging.html">Next</a>&gt&gt </h2></th>
   		 </table>

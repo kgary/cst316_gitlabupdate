@@ -36,6 +36,7 @@
 		<span class="ft15"> 
 				<a href="createRepo.html">Create</a>&nbsp&gt&gt&nbsp					
 			  	<a href="manage_local_repo.html">Manage</a>&nbsp&gt&gt&nbsp
+                <a href="checkpoint1.html">Checkpoint</a>&nbsp&gt&gt&nbsp
 				<a href="branching.html">Branch</a>&nbsp&gt&gt&nbsp
 				<span class="ft">Merge &nbsp&gt&gt&nbsp </span>
 				<a href="remote_repo.html"> Remote Repositories</a>&nbsp&gt&gt&nbsp
@@ -69,7 +70,7 @@
               <P class="p50 ft4">You need to merge Branches that are in the same commit path (master and p2), and divergent branches (p1). Reconciling these efficiently depends on what you are doing and where you want to go.</P>
               <P class="p50 ft4">The 1<SPAN class="ft41">st </SPAN>case is easier. As master and p2 only differ by a commit, reconciling them is as simple as moving the master pointer forward:</P>
               <P class="p50 ft4">That’s it (you can use your <a href="http://git-scm.com/docs/git-show">git show</a> to check). In fact it doesn’t matter how many commits have been applied to p2 as long as it is not divergent from master – master can <NOBR>“fast-forward”</NOBR> to catch up with p2. But we still have the divergent branch problem with p1.</P>
-              <P class="p50 ft4">Since these branches diverge, git cannot just <NOBR>fast-forward</NOBR> master. Instead, it has to use information from master, p1, and the common ancestor of them to do the merge.</P>
+              <P class="p50 ft4">Since these branches diverge, git cannot just <NOBR>fast-forward</NOBR> master. Instead, it has to use information from master, p1, and the common ancestor of them to do the merge.</P><br/>
               <P class="p73 ft4"><SPAN class="ft43">How is this different that traditional SCC? </SPAN>In traditional systems it is up to the developer to determine from which point to merge, and often this is a source of the problem with bad merges (typically something gets lost). Git takes care of this by identifying that nearest ancestor and attempting the merge from there. It doesn’t always work cleanly, you may get a message like this:</P>
               <P class="p25 ft26"><NOBR>Auto-merging</NOBR> ButtonFrame.java</P>
               <P class="p25 ft26">CONFLICT (content): Merge conflict in ButtonFrame.java</P>
@@ -107,7 +108,8 @@
                 <P class="p21 ft5">We just added 2 new commits to p1, and we are divergent again. Yes we can go to master and merge. Or another option is to <SPAN class="ft35">rebase</SPAN></P>
                 <P class="p80 ft6">– to apply all the changes that were applied by the commits on master to p1 (or the current branch). In essence, you are saying you are accepting the changes made <SPAN class="ft25">en masse</SPAN>.</P>
                 <P class="p25 ft26">$ <a href="http://git-scm.com/docs/git-rebase">git rebase</a> master</P>
-                <P class="p81 ft19">$ <a href="http://git-scm.com/docs/git-checkout">git checkout</a> master $ <a href="http://git-scm.com/docs/git-merge">git merge</a> p1</P>
+                <P class="p81 ft19">$ <a href="http://git-scm.com/docs/git-checkout">git checkout</a> master</P>
+                    <P class="p25 ft26">$ <a href="http://git-scm.com/docs/git-merge">git merge</a> p1</P>
                 <P class="p82 ft6">What git does is linearize the set of changes (commits) made to the divergent paths of master and p1. It is considered better practice to do it in the <NOBR>non-master</NOBR> branch and then <NOBR>fast-forward</NOBR> master if it is successful, just in case there are problems. Now why would you rebase instead of merge? Basically to linearize the history. With rebase, since commits are basically replayed, it “straightens” the codeline’s history, essentially obscuring the fact that a branch ever happened. This helps if you are branching to experiment with something or support a <NOBR>short-term</NOBR> spike, and do not want to cloud the codeline’s history.</P>
                 <P class="p13 ft5"><SPAN class="ft47">How is this different that traditional SCC? </SPAN>If you’ve ever seen a tag history for a highly branched open source project you would understand why this is so helpful! Over time a fair amount of crud can build up (rapidly) in your traditional SCC repository. Lots of branches get created, some are cleanly merged and removed, others live a long and illustrious life, and others kinda just hang around for reasons unknown, but everybody is too scared to remove it. Each legacy branch represents another decision for change management per change, and obscures the history of the codeline. <SPAN class="ft35">Rebasing </SPAN>is a unique concept that I highly encourage for <NOBR>short-term</NOBR> concurrent work – use a branch to do your stuff, but it isn’t always necessary to keep that branch history around. Basically we want to conform to the best practice in your notes – “branch only on incompatible policy” – yet sometimes we do it for productivity and convenience. Rebasing allows is to have the best of both worlds.</P>
                 <P class="p3 ft25"><SPAN class="ft27">Submit checkpoint #5</SPAN>: jar/zip up your working directory (including the .git subdirectory) to a file named <NOBR>&lt;asurite&gt;.lab1-5.jar[zip]</NOBR></P>

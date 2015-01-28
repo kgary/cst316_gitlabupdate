@@ -40,13 +40,14 @@ alert('hello');
 	<div id="container">
 		<header>
 			<h1>Source Code Management</h1>
-			<p class="description">Managing Local Git Repository</p>
+			<p class="description">The Software Enterprise Git tutorial</p>
 		</header>
 		
 		<br />
 		<span class="ft15"> 
-			  	<a href="createRepo.html">Create</a>&nbsp&gt&gt&nbsp								
+			  	<a href="createRepo.html">Create</a>&nbsp&gt&gt&nbsp
 			  	<span class="ft">Manage</a>&nbsp&gt&gt&nbsp </span>
+                <a href="checkpoint1.html">Checkpoint</a>&nbsp&gt&gt&nbsp
 				<a href="branching.html">Branch</a>&nbsp&gt&gt&nbsp
 				<a href="merging.html">Merge</a>&nbsp&gt&gt&nbsp
 				<a href="remote_repo.html"> Remote Repositories</a>&nbsp&gt&gt&nbsp
@@ -58,6 +59,7 @@ alert('hello');
 			
 			
 		<div id="wrapper">
+            <h1>Manage Change</h1>
 			<section id="content">
 			<table width="100%"><th align="left"><h2>Edit a file and check the status (<a href="http://git-scm.com/docs/git-status">git status</a>)</th>
 				<th align="right">
@@ -66,7 +68,7 @@ alert('hello');
 				</th></table>
 
 				<ol>
-					<li>Open ButtonFrame.java in any text editor (don’t go Eclipse yet) and add a few lines and delete a few lines (comment lines are fine).</li>
+					<li>Open ButtonFrame.java in any text editor (not an IDE like Eclipse yet) and add a few lines and delete a few lines (comment lines are fine).</li>
 					<li>Check the status</br>
 					<b>$<a href="http://git-scm.com/docs/git-status">git status</a></b></li>
 				</ol>
@@ -142,6 +144,7 @@ alert('hello');
     			</ol>
 				<block id="id_show">
                     <P class="p49 ft20">You may want to periodically check the history and other metadata about your files. Use the <a href="http://git-scm.com/docs/git-show">git show</a> command for this: <SPAN class="ft19">$ <a href="http://git-scm.com/docs/git-show">git show</a> ButtonFrame.java</SPAN></P>
+                    <P class="p49 ft20"><a href="http://git-scm.com/docs/git-show">git show</a> will only show you the transactions on the repo. </P>
                      	
 				</block>
 			</section>
@@ -156,7 +159,7 @@ alert('hello');
     				<li>Display the difference</br><b>$ <a href="http://git-scm.com/docs/git-diff">git diff</a> ButtonFrame.java</b></li>
     			</ol>
 				<block id="id_diff">
-                    <P class="p50 ft4"><a href="http://git-scm.com/docs/git-show">git show</a> will only show you the transactions on the repo. What about the scenario where you are editing a file but haven’t committed yet, and want to check on how it compares to the copy in the repo? Git has its own flavor of the Unix diff command:</P>
+                    <P class="p50 ft4">What about the scenario where you are editing a file but haven’t committed yet, and want to check on how it compares to the copy in the repo? Git has its own flavor of the Unix diff command:</P>
                     <P class="p25 ft18">$ <a href="http://git-scm.com/docs/git-diff">git diff</a> ButtonFrame.java</P>			
 				</block>
 			</section>
@@ -173,7 +176,7 @@ alert('hello');
 		<table width="100%">
       		<th align="left"><h2>&lt&lt <a href="createRepo.html" >Previous</a></h2></th>
 
-      		<th align="right"><h2><a href="branching.html">Next</a>&gt&gt </h2></th>
+      		<th align="right"><h2><a href="checkpoint1.html">Next</a>&gt&gt </h2></th>
   		 </table>
 		<footer>
 			<ul>
