@@ -65,48 +65,12 @@
                 <P class="p25 ft6">delete all the files and directories except the .git directory. Edit the file <SPAN class="ft48">config </SPAN></P>
                 <P class="p58 ft6">What is this zaniness? It converts your <NOBR>non-bare</NOBR> repo into a bare repo. Notice how this “bare” repository has all the stuff you saw in the .git subdirectory before. Bare repos are a strange and confusing bird at first; basically just remember they are used as a place where multiple developers will be synching against remotely, and nobody is doing any actual work in (which is why the git stuff is in the directory and there are no code files).</P>
                 <P class="p85 ft6">Now, from your work1 directory, go up one directory (cd ..), and create a second working directory (mkdir jekyll). After doing this you should have this structure:</P>
-                <P class="p86 ft6">___ work1____</P>
-                <P class="p87 ft6">/ \___ git stuff Top ___/</P>
-                <P class="p88 ft6">\</P>
-                <P class="p89 ft6"><NOBR>-------</NOBR> jekyll</P>
+                <P> <img src="images/1st.png"  style="width:100%;height:128px"></P>
                 <P class="p21 ft6">cd to jekyll. We want to create a new repo here <SPAN class="ft25">from the state of the existing repo </SPAN>over in work1. <a href="http://git-scm.com/docs/git-clone">git clone</a> does this:</P>
 				<P class="p34 ft6">git will respond that it did so. But now look at your directory structure:</P>
-          <P class="p88 ft6">_____ work1____</P>
-          <TABLE cellpadding=0 cellspacing=0 class="t2">
-          <TR>
-          	<TD class="tr6 td8"><P class="p90 ft6">/</P></TD>
-          	<TD class="tr6 td9"><P class="p91 ft6">\___ git stuff</P></TD>
-          </TR>
-          <TR>
-          	<TD class="tr3 td8"><P class="p92 ft5">Top ___/</P></TD>
-          	<TD class="tr3 td9"><P class="p0 ft44">&nbsp;</P></TD>
-          </TR>
-          <TR>
-          	<TD class="tr6 td8"><P class="p90 ft6">\</P></TD>
-          	<TD class="tr6 td9"><P class="p0 ft50">&nbsp;</P></TD>
-          </TR>
-          <TR>
-          	<TD class="tr3 td8"><P class="p93 ft14">\</P></TD>
-          	<TD rowspan=2 class="tr7 td9"><P class="p94 ft5">jekyll _______ work1</P></TD>
-          </TR>
-          <TR>
-          	<TD class="tr3 td8"><P class="p95 ft14"><NOBR>-------</NOBR></P></TD>
-          </TR>
-          <TR>
-          	<TD class="tr6 td8"><P class="p0 ft50">&nbsp;</P></TD>
-          	<TD class="tr6 td9"><P class="p96 ft6">\___ .git</P></TD>
-          </TR>
-          <TR>
-          	<TD class="tr3 td8"><P class="p0 ft44">&nbsp;</P></TD>
-          	<TD class="tr3 td9"><P class="p91 ft14">\</P></TD>
-          </TR>
-          <TR>
-          	<TD class="tr8 td8"><P class="p0 ft50">&nbsp;</P></TD>
-          	<TD class="tr8 td9"><P class="p97 ft6">\___ *.java and other files</P></TD>
-          </TR>
-          </TABLE>
-          <P class="p98 ft6">You have a completely new 2<SPAN class="ft41">nd </SPAN>repository, created from the first. In this 2<SPAN class="ft41">nd </SPAN>working directory, edit ButtonFrame.java, and add a comment at the top: “Added a comment for this jekyll repo version only” and commit. Now do a <a href="http://git-scm.com/docs/git-status">git status</a>. What is the history of the file?</P>
-          <P class="p99 ft6">OK, so why did we create 2 repositories for essentially the same stuff? Short answer: to prove a point for this lab. In reality I cannot think of a good use case for creating a 2<SPAN class="ft41">nd </SPAN>local repo for the same project (if you need to manage multiple codelines you will use branches, see above). For now, we will treat our 2<SPAN class="ft41">nd </SPAN>repo as the local working repo (top/jekyll/work1) and the 1<SPAN class="ft41">st </SPAN>repo (top/work1) as a remote repo. </P>
+				<P> <img src="images/2nd.png"  style="width:100%;height:228px"></P>
+				<P class="p98 ft6">You have a completely new 2<SPAN class="ft41">nd </SPAN>repository, created from the first. In this 2<SPAN class="ft41">nd </SPAN>working directory, edit ButtonFrame.java, and add a comment at the top: “Added a comment for this jekyll repo version only” and commit. Now do a <a href="http://git-scm.com/docs/git-status">git status</a>. What is the history of the file?</P>
+				<P class="p99 ft6">OK, so why did we create 2 repositories for essentially the same stuff? Short answer: to prove a point for this lab. In reality I cannot think of a good use case for creating a 2<SPAN class="ft41">nd </SPAN>local repo for the same project (if you need to manage multiple codelines you will use branches, see above). For now, we will treat our 2<SPAN class="ft41">nd </SPAN>repo as the local working repo (top/jekyll/work1) and the 1<SPAN class="ft41">st </SPAN>repo (top/work1) as a remote repo. </P>
 
             </block>
 			</section>
@@ -135,53 +99,8 @@
               <P class="p101 ft6">But for now, let’s pretend top/work1 on your local machine is a remote “shared” repo, and top/jekyll/work1 is where you, as a developer, are doing your coding. </P>
               <P class="p102 ft6">Look at the results of the remote <NOBR>–v</NOBR> command. Actually we are not pretending top/work1 is a remote repo, by virtue of <SPAN class="ft25">cloning </SPAN>another repo git automatically added it as a remote repo named <SPAN class="ft25">origin</SPAN>. That seems pretty crazy, so let’s do it again: create a directory top/hyde, and clone work1 again:</P>
               <P class="p24 ft6">With the creation of top/work1 we have 3 repos, which should be organized like this:</P>
-              <P class="p86 ft6">_____ work1____</P>
-            <TABLE cellpadding=0 cellspacing=0 class="t3">
-            <TR>
-            	<TD class="tr3 td10"><P class="p105 ft14">/</P></TD>
-            	<TD class="tr3 td11"><P class="p0 ft5">\___ git stuff</P></TD>
-            </TR>
-            <TR>
-            	<TD class="tr6 td10"><P class="p106 ft5">Top ___/</P></TD>
-            	<TD class="tr6 td11"><P class="p0 ft50">&nbsp;</P></TD>
-            </TR>
-            <TR>
-            	<TD class="tr6 td10"><P class="p105 ft6">\</P></TD>
-            	<TD class="tr6 td11"><P class="p0 ft50">&nbsp;</P></TD>
-            </TR>
-            </TABLE>
-            <P class="p107 ft14">|\</P>
-            <P class="p107 ft14">| \____ jekyll________ work1</P>
-            <TABLE cellpadding=0 cellspacing=0 class="t4">
-            <TR>
-            	<TD class="tr3 td12"><P class="p0 ft14">|</P></TD>
-            	<TD class="tr3 td13"><P class="p96 ft5">\___ .git</P></TD>
-            </TR>
-            <TR>
-            	<TD class="tr3 td12"><P class="p0 ft14">|</P></TD>
-            	<TD class="tr3 td13"><P class="p91 ft14">\</P></TD>
-            </TR>
-            <TR>
-            	<TD class="tr3 td12"><P class="p0 ft14">\</P></TD>
-            	<TD class="tr3 td13"><P class="p97 ft14">\___ *.java and other files</P></TD>
-            </TR>
-            <TR>
-            	<TD class="tr8 td12"><P class="p108 ft5">\_____ hyde _______ work1</P></TD>
-            	<TD rowspan=2 class="tr7 td13"><P class="p96 ft5">\___ .git</P></TD>
-            </TR>
-            <TR>
-            	<TD class="tr9 td12"><P class="p0 ft52">&nbsp;</P></TD>
-            </TR>
-            <TR>
-            	<TD class="tr6 td12"><P class="p0 ft50">&nbsp;</P></TD>
-            	<TD class="tr6 td13"><P class="p91 ft6">\</P></TD>
-            </TR>
-            <TR>
-            	<TD class="tr10 td12"><P class="p0 ft50">&nbsp;</P></TD>
-            	<TD class="tr10 td13"><P class="p97 ft6">\___ *.java and other files</P></TD>
-            </TR>
-            </TABLE>
-            <P class="p109 ft4">Note the <a href="http://git-scm.com/docs/git-remote">git remote</a> <NOBR>–v</NOBR> command will give you a verbose listing of the remote repository branches your repo knows about, and under what alias (origin is the default). In terms you already know from above, when you cloned work1 in each of jekyll and hyde, you not only got a copy of the files, you also got 2 branches (pointers) – the <SPAN class="ft2">master </SPAN>you are used to seeing from before, and a <SPAN class="ft2">remote branch </SPAN>named <SPAN class="ft2">origin/master</SPAN>. Originally both branches point to the same commit node (yes, when you clone you also get the entire metadata history from the original repo). But, when you start making edits locally and committing changes, you are only doing it against master.</P>
+			  <P> <img src="images/3rd.png"  style="width:100%;height:328px"></P>
+              <P class="p109 ft4">Note the <a href="http://git-scm.com/docs/git-remote">git remote</a> <NOBR>–v</NOBR> command will give you a verbose listing of the remote repository branches your repo knows about, and under what alias (origin is the default). In terms you already know from above, when you cloned work1 in each of jekyll and hyde, you not only got a copy of the files, you also got 2 branches (pointers) – the <SPAN class="ft2">master </SPAN>you are used to seeing from before, and a <SPAN class="ft2">remote branch </SPAN>named <SPAN class="ft2">origin/master</SPAN>. Originally both branches point to the same commit node (yes, when you clone you also get the entire metadata history from the original repo). But, when you start making edits locally and committing changes, you are only doing it against master.</P>
             
               
 			</block>
