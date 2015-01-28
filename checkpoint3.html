@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="Description" content="Your Title">
+    <meta name="author" content="Roopa Hiremath Chandrasekaraiah">
+    <meta name="Copyright" content="Copyright 2015 Arizona State University, all rights reserved.">
+	<title>Manage Local Repository</title>
+	<link rel="stylesheet" type="text/css" href="CSS/mystyles.css">
+	<link rel="stylesheet" type="text/css" href="CSS/gen.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    </head>
+<body>
+	<div id="container">
+		<header>
+			<h1>Source Code Management</h1>
+			<p class="description">The Software Enterprise Git tutorial</p>
+		</header>
+		
+		<br />
+		<span class="ft15"> 
+                <a href="createRepo.html">Create</a>&nbsp&gt&gt&nbsp					
+			  	<a href="manage_local_repo.html">Manage</a>&nbsp&gt&gt&nbsp
+                <a href="checkpoint1.html">Checkpoint 1</a>&nbsp&gt&gt&nbsp
+				<a href="branching.html">Branch</a>&nbsp&gt&gt&nbsp
+				<a href="merging.html">Merge &nbsp&gt&gt&nbsp </a>
+                <a href="checkpoint2.html">Checkpoint 2</a>&nbsp&gt&gt&nbsp
+				<a href="remote_repo.html"> Remote Repositories</a>&nbsp&gt&gt&nbsp
+				<a href="remote_branch.html">Remote Branch</a>&nbsp&gt&gt&nbsp
+				<a href="github.html">GitHub</a>&nbsp&gt&gt&nbsp
+                <a href="checkpoint3.html">Checkpoint 3</a>&nbsp&gt&gt&nbsp
+				<a href="egit.html">Eclipse Plugin</a>
+		</span>		
+		<div id="wrapper">
+            <h1>Checkpoint 3</h1>
+			<section id="content">
+                <P class="p24 ft6">We’ve talked about the following git commands:</P>
+                <UL>
+                    <LI>clone – Clone (copy) a remote repository and init at the same time</LI>
+                    <LI>remote - issue a command on the remote repository to which this local repository refers to</LI>
+                    <LI>push – port local changes to the remote referred to repo</LI>
+                    <LI>pull – port changes from the remote repo to local repo</LI>
+                    <LI>fetch – fetches changes from the remote repo. Pull is actually a fetch followed by a merge. You can also tell pull to optionally use rebase instead of merge</LI>
+                </UL>
+<br/>
+<P class="p24 ft6">
+Managing remote repositories is critically important and fundamentally different than traditional SCC platforms. Git, as a DVCM, supports local repos managing local change. Remote repositories are <em>peers</em>, not <em>master copies</em> as in the traditional client-server paradigm. In effect, with the remote commands you are managing your relationships with peer repositories. This is very very important to understand, and often a source of initial confusion when using Git. Unfortunately I don't think Git helps itself, as default branch labels like <i>master</i> are misleading, and convenience operations hide remote references you created earlier. 
+                </P>
+<P class="p24 ft6">                
+Together with the branching/merging of checkpoint 2, remote repo management gives Git its power to define flexible collaborative workflows. You decide where and in what repos stable codelines live, or experimental code, or whatever. You decide who gets what access to the codelines. You define <em>hooks</em> to help enforce your quality and reporting policies on change management. When you truly understand Git as a DVCM, you begin to see the power of collaboration it provdies to you, and why developer communities, particularly open (source) communities, flock to it. Unfortunately, I would say a majority of Git users do not see this - they see GitHub as a nice web interface and simply use it in the old centralized branch and merge workflow. I encourage you to read about Git workflows, including but not limited to the <a href="https://guides.github.com/introduction/flow/index.html">GitHub Flow</a> which are useful when used in conjunction with code reviews.
+                </P>
+        </div>
+		<br/><br />
+		 
+		<table width="100%">
+      		<th align="left"><h2>&lt&lt <a href="github.html" >Previous</a></h2></th>
+
+      		<th align="right"><h2><a href="egit.html">Next</a>&gt&gt </h2></th>
+  		 </table>
+		<footer>
+			<ul>
+				<li><a href="index.html">Home</a></li>				
+								 
+			</ul>
+			<p>The Software Enterprise @ ASU, copyright (c) Kevin A. Gary 2015</p>
+		</footer>
+	</div>
+</body>
+</html>
