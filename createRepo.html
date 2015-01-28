@@ -46,10 +46,10 @@
 			</span>
 		<div id="wrapper">
 			<section id="content">
-				<table width="100%"><th align="left"><h2>Initialize git repository (<a href="http://git-scm.com/docs/git-status">git init</a>)</th>
+				<table width="100%"><th align="left"><h2>Initialize git repository (<a href="http://git-scm.com/docs/git-init">git init</a>)</th>
 				<th align="right">
-				  <button id="b1" style="display:none;"   onclick=show('am','b1','b2') > ?</button>			
-                  <button id="b2" style="display:none;" onClick=hide('am','b1','b2')   >^</button>
+				  <button id="b1_init"  onclick=show('id_init','b1_init','b2_init') > ?</button>			
+                  <button id="b2_init" style="display:none;" onClick=hide('id_init','b1_init','b2_init')   >^</button>
 				</th></table>
 				
 				<ol>
@@ -58,17 +58,25 @@
 					<b>$ git init</b></li>
 					<li>Check out the contents of this hidden directory:</br><b>$ ls –la .git</b></li>
 				</ol>
-			
+			<block id="id_init">
+			 		<P class="p29 ft6">This command creates an empty Git repository - basically a .git directory with subdirectories for objects, refs/heads, refs/tags, and template files. An initial HEAD file that references the HEAD of the master branch is also created.</p>
+					<P class="p29 ft6">If you list out the files in .git, you would be able to see the files :COMMIT_EDITMSG, config, description, HEAD, hooks, index, info, logs, objects, packed-refs, refs.</P>
+                    
+				</block>	
 			</section>
 			<section id="content">
 			<table width="100%"><th align="left"><h2>Add contents to git repository  (<a href="http://git-scm.com/docs/git-add">git add</a>)</th>
-			<th align="right">
-				  <button id="b1" style="display:none;"   onclick=show('am','b1','b2') > ?</button>			
-                  <button id="b2" style="display:none;" onClick=hide('am','b1','b2')   >^</button>
-			</th></table>
+				<th align="right">
+				  <button id="b1_add"  onclick=show('id_add','b1_add','b2_add') > ?</button>			
+                  <button id="b2_add" style="display:none;" onClick=hide('id_add','b1_add','b2_add')   >^</button>
+				</th></table>
 				<ol>
     				<li>Execute the commands to add contents to the repository</br><b>$ git add *.java </br>$ git add </b>&ltthe rest of the stuff&gt  </li>
     			</ol>
+				<block id="id_add">
+			 		<P class="p29 ft6"> This command updates the index using the current content found in the working tree, to prepare the content staged for the next commit. It typically adds the current content of existing paths as a whole, but with some options it can also be used to add content with only part of the changes made to the working tree files applied, or remove paths that do not exist in the working tree anymore.</p>
+					<P class="p29 ft6"> On executing "init add &ltfilename&gt" command we have the file ready to be committed.</p>
+				</block>	
 			</section>
 			<section id="content">
 				<table width="100%"><th align="left"><h2>Check repo status  (<a href="http://git-scm.com/docs/git-status">git status</a>)</th>
