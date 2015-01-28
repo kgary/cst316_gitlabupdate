@@ -46,7 +46,8 @@
 			</span>
 		<div id="wrapper">
 			<section id="content">
-				<table width="100%"><th align="left"><h2>Initialize git repository (<a href="http://git-scm.com/docs/git-init">git init</a>)</th>
+			<table width="100%"><th align="left"><h2>Initialize git repository (<a href="http://git-scm.com/docs/git-init">git init</a>)</th>
+ 
 				<th align="right">
 				  <button id="b1_init"  onclick=show('id_init','b1_init','b2_init') > ?</button>			
                   <button id="b2_init" style="display:none;" onClick=hide('id_init','b1_init','b2_init')   >^</button>
@@ -54,8 +55,8 @@
 				
 				<ol>
 					<li>Download files from  <a href="resources/labgit-master.zip" target="_blank"    >here</a> . In a clean directory named “work”, unjar the contents. You will see it is a simple source tree with a few other things thrown in. </li>
-					<li>At the command line, in the directory in which you unjarred the given file execute the below command to initialize repository</br>
-					<b>$ git init</b></li>
+					<li>At the command line, in the directory in which you unjarred the given file, execute the below command to initialize repository</br>
+					<b>$ <a href="http://git-scm.com/docs/git-init">git init</a></b></li>
 					<li>Check out the contents of this hidden directory:</br><b>$ ls –la .git</b></li>
 				</ol>
 			<block id="id_init">
@@ -65,13 +66,14 @@
 				</block>	
 			</section>
 			<section id="content">
+ 
 			<table width="100%"><th align="left"><h2>Add contents to git repository  (<a href="http://git-scm.com/docs/git-add">git add</a>)</th>
 				<th align="right">
 				  <button id="b1_add"  onclick=show('id_add','b1_add','b2_add') > ?</button>			
                   <button id="b2_add" style="display:none;" onClick=hide('id_add','b1_add','b2_add')   >^</button>
 				</th></table>
 				<ol>
-    				<li>Execute the commands to add contents to the repository</br><b>$ git add *.java </br>$ git add </b>&ltthe rest of the stuff&gt  </li>
+    				<li>Execute the commands to add contents to the repository</br><b>$ <a href="http://git-scm.com/docs/git-add"><a href="http://git-scm.com/docs/git-add">git add</a></a> </b>&ltthe rest of the stuff&gt  </li>
     			</ol>
 				<block id="id_add">
 			 		<P class="p29 ft6"> This command updates the index using the current content found in the working tree, to prepare the content staged for the next commit. It typically adds the current content of existing paths as a whole, but with some options it can also be used to add content with only part of the changes made to the working tree files applied, or remove paths that do not exist in the working tree anymore.</p>
@@ -79,14 +81,14 @@
 				</block>	
 			</section>
 			<section id="content">
-				<table width="100%"><th align="left"><h2>Check repo status  (<a href="http://git-scm.com/docs/git-status">git status</a>)</th>
+				<table width="100%"><th align="left"><h2>Check repo status  (<a href="http://git-scm.com/docs/git-status"><a href="http://git-scm.com/docs/git-status">git status</a></a>)</th>
 				<th align="right">
 				  <button id="b1_status"  onclick=show('id_status','b1_status','b2_status') > ?</button>			
                   <button id="b2_status" style="display:none;" onClick=hide('id_status','b1_status','b2_status')   >^</button>
 				</th></table>
 
 				<ol>
-    				<li>Verify the status of the Git repository with the following command</br><b>$ git status</b></li>
+    				<li>Verify the status of the Git repository with the following command</br><b>$ <a href="http://git-scm.com/docs/git-status">git status</a></b></li>
     			</ol>
 				<block id="id_status">
 			 		<P class="p29 ft6">A whole bunch of stuff comes back with the header:</P>
@@ -94,20 +96,20 @@
                     <P class="p31 ft18"><SPAN class="ft18">#</SPAN><SPAN class="ft23">Initial commit</SPAN></P>
                     <P class="p25 ft18">#</P>
                     <P class="p30 ft18"><SPAN class="ft18">#</SPAN><SPAN class="ft23">Changes to be committed:</SPAN></P>
-                    <P class="p32 ft18"><SPAN class="ft18">#</SPAN><SPAN class="ft24">(use "git rm </SPAN><NOBR>--cached</NOBR> &lt;file&gt;..." to unstage)</P>
+                    <P class="p32 ft18"><SPAN class="ft18">#</SPAN><SPAN class="ft24">(use "<a href="http://git-scm.com/docs/git-rm">git rm</a> </SPAN><NOBR>--cached</NOBR> &lt;file&gt;..." to unstage)</P>
                     <P class="p33 ft6">and a bunch of “new file: &lt;your file&gt;” lines. What does it mean? Well, git is aware you are adding new files, but says they are not <SPAN class="ft25">committed</SPAN>. In git terms these files are <SPAN class="ft25">staged </SPAN>(note the last line about how to <SPAN class="ft25">unstage </SPAN>a file). So let’s commit.</P>
 
 				</block>	
 			</section>
 			<section id="content">
-			<table width="100%"><th align="left"><h2>Commit repo contents  (<a href="http://git-scm.com/docs/git-commit">git commit</a>)</th>
+			<table width="100%"><th align="left"><h2>Commit repo contents  (<a href="http://git-scm.com/docs/git-commit"><a href="http://git-scm.com/docs/git-commit">git commit</a></a>)</th>
 				<th align="right">
 				  <button id="b1_commit"  onclick=show('id_commit','b1_commit','b2_commit') > ?</button>			
                   <button id="b2_commit" style="display:none;" onClick=hide('id_commit','b1_commit','b2_commit')   >^</button>
 				</th></table>
 
 				<ol>
-    				<li>Store the changes to Git repository with the following command</br><b>$ git commit –m “Initial commit of my stuff” . </b></li>
+    				<li>Store the changes to Git repository with the following command</br><b>$ <a href="http://git-scm.com/docs/git-commit">git commit</a> –m “Initial commit of my stuff” . </b></li>
     			</ol>
 				<block id="id_commit">
 					   <P class="p34 ft6">You should get a message back saying</P>
@@ -117,12 +119,10 @@
 				
 				
 			</section>
-			 
-			
 			<section>
 			<br>
 				<div align="center"> <b>Create Tag: </b> $git tag 'v1.0'</div>
-				<div align="center"> <b>Start From the biginning: </b>Follow from step 1 in different folder</div>
+				<div align="center"> <b>Start From the beginning: </b>Follow from step 1 in different folder</div>
 		    </section><!--submit> 
 		
 				 <b>Submit checkpoint #1:</b> jar/zip up your working directory (including the .git subdirectory) to a file named &ltasurite&gt.lab1-1.jar[zip]  
